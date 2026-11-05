@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Калькулятор электровелосипеда: расчёт комплекта и цены — CITY BIKE</title>
+<meta name="description" content="Подберите мотор, контроллер и аккумулятор, узнайте стоимость и прогноз запаса хода. Калькулятор электровелосипеда от CITY BIKE, Новосибирск."><meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://citybikensk.ru/calc">
+<meta property="og:type" content="website"><meta property="og:site_name" content="CITY BIKE"><meta property="og:title" content="Калькулятор электровелосипеда: расчёт комплекта и цены — CITY BIKE"><meta property="og:description" content="Подберите мотор, контроллер и аккумулятор, узнайте стоимость и прогноз запаса хода. Калькулятор электровелосипеда от CITY BIKE, Новосибирск."><meta property="og:image" content="https://citybikensk.ru/assets/img/neon-1600.webp"><meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#0a090d">
+<link rel="icon" href="../favicon.png" type="image/png"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/oswald-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=2">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BicycleStore", "name": "CITY BIKE", "url": "https://citybikensk.ru/", "telephone": "+79137585571", "foundingDate": "2012", "address": {"@type": "PostalAddress", "streetAddress": "Вокзальная магистраль, 3", "addressLocality": "Новосибирск", "addressCountry": "RU"}, "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "11:00", "closes": "20:00"}, "sameAs": ["https://vk.com/citybikensk", "https://novosibirsk.flamp.ru/firm/city_bike_veloservis-70000001022322607"], "description": "Ремонт и обслуживание велосипедов, электровелосипеды, электрификация, запчасти и реставрация в Новосибирске."}]</script>
+</head><body>
+<header class="top"><div class="wrap top-in">
+<a class="brand" href="../" aria-label="CITY BIKE, на главную"><img src="../favicon.png" width="42" height="42" alt=""><span>City <b>Bike</b></span></a>
+<nav class="nav" aria-label="Разделы"><a href="../veloservice/">Велосервис</a><a href="../electroservice/">Электросервис</a><a href="../ecustom/">Электрификация</a><a href="../catalog/">Витрина</a><a href="../jobpaint/">Реставрация</a><a href="../sovets/">Диагност</a><a href="../oplata/">Как купить</a><a href="../o_nas/">О нас</a><a href="../contact/">Контакты</a></nav>
+<a class="top-tel" href="tel:+79137585571">+7 913-758-55-71</a>
+<button class="burger" type="button" aria-label="Меню" aria-expanded="false">Меню</button>
+</div></header>
+<main><section class="sec" style="padding-bottom:24px"><div class="wrap"><p class="kick">Калькулятор</p><h1 style="font-size:clamp(36px,6.6vw,76px);margin-bottom:12px">Соберите свой электро&shy;велосипед</h1><p class="lead">Выберите конфигурацию: калькулятор посчитает стоимость и прогноз запаса хода.</p></div></section><div class="wrap" style="padding-bottom:48px"><!-- Калькулятор электротранспорта City Bike для Tilda T123 -->
+<div id="citybike-calc-app" style="position: relative; width: 100%; margin: 0 auto; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; box-sizing: border-box; background: #0a0c12; border-radius: 20px; min-height: 600px;">
+  <style>
+    #citybike-calc-app *,
+    #citybike-calc-app *::before,
+    #citybike-calc-app *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #citybike-calc-app {
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.2s ease;
+    }
+    #citybike-calc-app #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 20px;
+    }
+    #citybike-calc-app .bike-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      height: 260px;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 2;
+      animation: bikeFloat 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px #9b59b6);
+    }
+    @keyframes bikeFloat {
+      0% { transform: translate(-50%, -50%) scale(0.98); opacity: 0.23; }
+      50% { transform: translate(-50%, -50%) scale(1.02); opacity: 0.28; }
+      100% { transform: translate(-50%, -50%) scale(0.98); opacity: 0.23; }
+    }
+    #citybike-calc-app .ev-calc-compact {
+      position: relative;
+      z-index: 3;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(8, 10, 18, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 20px;
+      padding: 8px 18px;
+      border: 1px solid rgba(155, 89, 182, 0.6);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      transition: background 0.2s, backdrop-filter 0.2s;
+    }
+    #citybike-calc-app .city-bike-title {
+      text-align: center;
+      margin-bottom: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 52px;
+      font-weight: bold;
+      letter-spacing: 6px;
+      color: #0f0;
+      text-shadow: 0 0 4px #0f0, 0 0 8px #0f0;
+      animation: neonPulse 2s ease-in-out infinite;
+      line-height: 1;
+    }
+    @keyframes neonPulse {
+      0% { text-shadow: 0 0 2px #0f0, 0 0 4px #0f0; opacity: 0.9; }
+      50% { text-shadow: 0 0 6px #0f0, 0 0 12px #0f0; opacity: 1; }
+      100% { text-shadow: 0 0 2px #0f0, 0 0 4px #0f0; opacity: 0.9; }
+    }
+    #citybike-calc-app .subtitle {
+      text-align: center;
+      margin-bottom: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #00aaff;
+      text-shadow: 0 0 3px #00aaff, 0 0 6px #00aaff;
+      animation: subtitlePulse 1.8s ease-in-out infinite;
+    }
+    @keyframes subtitlePulse {
+      0% { text-shadow: 0 0 2px #00aaff, 0 0 4px #00aaff; opacity: 0.8; }
+      50% { text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff; opacity: 1; }
+      100% { text-shadow: 0 0 2px #00aaff, 0 0 4px #00aaff; opacity: 0.8; }
+    }
+    #citybike-calc-app .ev-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(155, 89, 182, 0.5);
+    }
+    #citybike-calc-app .ev-header-left h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #c29bdf;
+      text-shadow: 0 0 2px #9b59b6;
+    }
+    #citybike-calc-app .ev-header-left p {
+      font-size: 12px;
+      color: #aaaec3;
+      margin-top: 2px;
+      border-left: 3px solid #9b59b6;
+      padding-left: 10px;
+    }
+    #citybike-calc-app .ev-header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    #citybike-calc-app .ev-time {
+      font-family: monospace;
+      font-size: 14px;
+      background: rgba(20, 22, 35, 0.8);
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #9b59b6;
+      color: #d4b8ff;
+      letter-spacing: 1px;
+    }
+    #citybike-calc-app .save-config-btn {
+      background: rgba(20, 22, 35, 0.8);
+      border: 1px solid #9b59b6;
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 13px;
+      color: #d4b8ff;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: monospace;
+    }
+    #citybike-calc-app .save-config-btn:hover {
+      background: rgba(155, 89, 182, 0.3);
+      border-color: #c29bdf;
+      color: #fff;
+    }
+    #citybike-calc-app .ev-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    #citybike-calc-app .ev-col {
+      flex: 1;
+      min-width: 260px;
+      background: rgba(15, 18, 30, 0.6);
+      border-radius: 18px;
+      padding: 8px 8px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      transition: 0.2s;
+    }
+    #citybike-calc-app .ev-col:hover {
+      border-color: rgba(155, 89, 182, 0.8);
+    }
+    #citybike-calc-app .ev-block {
+      margin-bottom: 10px;
+    }
+    #citybike-calc-app .ev-block-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #d4b8ff;
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      border-left: 3px solid #9b59b6;
+    }
+    #citybike-calc-app .ev-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    #citybike-calc-app .ev-label {
+      font-size: 11px;
+      color: #b0b5d0;
+      width: 70px;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+    #citybike-calc-app .ev-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    #citybike-calc-app .ev-btns label,
+    #citybike-calc-app .ev-checkbox {
+      background: rgba(25, 28, 45, 0.9);
+      padding: 4px 12px;
+      border-radius: 24px;
+      font-size: 11px;
+      cursor: pointer;
+      border: 1px solid #3a3f5a;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #e0e4ff;
+    }
+    #citybike-calc-app .ev-btns label:hover,
+    #citybike-calc-app .ev-checkbox:hover {
+      background: rgba(155, 89, 182, 0.25);
+      border-color: #9b59b6;
+    }
+    #citybike-calc-app .ev-btns input,
+    #citybike-calc-app .ev-checkbox input {
+      margin: 0;
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      accent-color: #9b59b6;
+    }
+    #citybike-calc-app .ev-btns label:has(input:checked) {
+      background: rgba(155, 89, 182, 0.35);
+      border-color: #9b59b6;
+      color: #f0e6ff;
+    }
+    #citybike-calc-app select {
+      background: rgba(20, 22, 35, 0.9);
+      border: 1px solid #3a3f5a;
+      border-radius: 24px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #e0e4ff;
+      width: 100%;
+      outline: none;
+      cursor: pointer;
+    }
+    #citybike-calc-app .ev-price-hint {
+      font-size: 10px;
+      color: #c29bdf;
+      margin-top: 3px;
+    }
+    #citybike-calc-app .ev-static {
+      font-size: 10px;
+      color: #aaafca;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 10px;
+      border-radius: 18px;
+      display: inline-block;
+    }
+    #citybike-calc-app .result-block {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 8px;
+      border: 1px solid rgba(155, 89, 182, 0.6);
+    }
+    #citybike-calc-app .ev-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f0e6ff;
+    }
+    #citybike-calc-app .ev-price span {
+      font-size: 28px;
+      font-weight: 800;
+      color: #c29bdf;
+    }
+    #citybike-calc-app .ev-specs {
+      margin-top: 5px;
+      font-size: 9px;
+      color: #b0b5d0;
+      background: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    #citybike-calc-app .estimation-block {
+      margin-top: 10px;
+      background: rgba(15, 18, 30, 0.7);
+      border-radius: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(155, 89, 182, 0.5);
+    }
+    #citybike-calc-app .estimation-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #d4b8ff;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    #citybike-calc-app .summary-text {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #e0e4ff;
+      background: rgba(0,0,0,0.3);
+      border-radius: 14px;
+      padding: 10px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    #citybike-calc-app .summary-text strong {
+      color: #c29bdf;
+    }
+    #citybike-calc-app .env-sliders {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0;
+      background: rgba(0,0,0,0.25);
+      border-radius: 16px;
+      padding: 8px 10px;
+    }
+    #citybike-calc-app .slider-item {
+      flex: 1;
+      min-width: 110px;
+    }
+    #citybike-calc-app .slider-item label {
+      font-size: 10px;
+      color: #b0b5d0;
+      display: block;
+      margin-bottom: 3px;
+    }
+    #citybike-calc-app .slider-item input {
+      width: 100%;
+      cursor: pointer;
+      background: #3a3f5a;
+      height: 3px;
+      border-radius: 3px;
+    }
+    #citybike-calc-app .slider-value {
+      font-size: 10px;
+      color: #c29bdf;
+      text-align: right;
+      margin-top: 2px;
+    }
+    #citybike-calc-app .warning {
+      color: #e67e22;
+      background: rgba(230, 126, 34, 0.2);
+      border-radius: 10px;
+      padding: 6px 10px;
+      margin-top: 8px;
+      font-size: 10px;
+      text-align: center;
+    }
+    #citybike-calc-app .warning-critical {
+      color: #e74c3c;
+      background: rgba(231, 76, 60, 0.2);
+      border: 1px solid #e74c3c;
+    }
+    #citybike-calc-app .admin-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(20, 22, 35, 0.7);
+      border: 1px solid #9b59b6;
+      color: #c29bdf;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    #citybike-calc-app .admin-btn:hover {
+      background: rgba(155, 89, 182, 0.5);
+      color: #fff;
+    }
+    #citybike-calc-app .modal {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+    }
+    #citybike-calc-app .modal-content {
+      background: #1a1e2f;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 85%;
+      overflow-y: auto;
+      padding: 20px;
+      border: 1px solid #9b59b6;
+      color: #e0e4ff;
+    }
+    #citybike-calc-app .modal-content h2 {
+      margin-bottom: 16px;
+      color: #c29bdf;
+    }
+    #citybike-calc-app .modal-content h3 {
+      margin: 15px 0 10px 0;
+      color: #c29bdf;
+      font-size: 18px;
+      border-bottom: 1px solid #9b59b6;
+    }
+    #citybike-calc-app .close-modal {
+      float: right;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    #citybike-calc-app .stats-section {
+      margin-top: 16px;
+      border-top: 1px solid #9b59b6;
+      padding-top: 12px;
+    }
+    #citybike-calc-app .stats-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+    }
+    #citybike-calc-app .stat-card {
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    #citybike-calc-app .stat-card h4 {
+      color: #c29bdf;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    #citybike-calc-app .stat-card .value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #f0e6ff;
+    }
+    #citybike-calc-app .price-editor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    #citybike-calc-app .price-editor-item {
+      background: #2a2e45;
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #citybike-calc-app .price-editor-item label {
+      font-size: 12px;
+      color: #b0b5d0;
+      flex: 1;
+    }
+    #citybike-calc-app .price-editor-item input {
+      width: 110px;
+      background: #0a0c12;
+      border: 1px solid #9b59b6;
+      border-radius: 6px;
+      padding: 4px 8px;
+      color: white;
+      text-align: right;
+    }
+    #citybike-calc-app .products-editor {
+      margin-top: 10px;
+    }
+    #citybike-calc-app .product-item {
+      background: #2a2e45;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    #citybike-calc-app .product-item input {
+      flex: 1;
+      min-width: 150px;
+      background: #0a0c12;
+      border: 1px solid #9b59b6;
+      border-radius: 8px;
+      padding: 6px 10px;
+      color: white;
+    }
+    #citybike-calc-app .product-item input.name-input {
+      flex: 2;
+    }
+    #citybike-calc-app .product-item input.link-input {
+      flex: 3;
+    }
+    #citybike-calc-app .product-item select,
+    #citybike-calc-app .product-item input.color-input {
+      width: 100px;
+      background: #0a0c12;
+      border: 1px solid #9b59b6;
+      border-radius: 6px;
+      padding: 4px 6px;
+      color: white;
+    }
+    #citybike-calc-app .product-item button {
+      background: #e74c3c;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      margin: 0;
+    }
+    #citybike-calc-app .product-item button.edit-btn {
+      background: #f39c12;
+    }
+    #citybike-calc-app .add-product-form {
+      background: #2a2e45;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    #citybike-calc-app .add-product-form input,
+    #citybike-calc-app .add-product-form select {
+      flex: 1;
+      min-width: 120px;
+      background: #0a0c12;
+      border: 1px solid #9b59b6;
+      border-radius: 8px;
+      padding: 6px 10px;
+      color: white;
+    }
+    #citybike-calc-app .add-product-form button {
+      background: #2ecc71;
+      margin: 0;
+    }
+    #citybike-calc-app .components-editor {
+      margin-top: 15px;
+    }
+    #citybike-calc-app .component-category {
+      background: #2a2e45;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 20px;
+    }
+    #citybike-calc-app .component-category h4 {
+      color: #d4b8ff;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    #citybike-calc-app .component-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    #citybike-calc-app .sortable-item {
+      background: #1e2130;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: grab;
+      user-select: none;
+      transition: 0.1s;
+    }
+    #citybike-calc-app .sortable-item:active {
+      cursor: grabbing;
+    }
+    #citybike-calc-app .sortable-item.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+    #citybike-calc-app .drag-handle {
+      cursor: grab;
+      font-size: 18px;
+      color: #9b59b6;
+      width: 24px;
+      text-align: center;
+      user-select: none;
+    }
+    #citybike-calc-app .sortable-item .content {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    #citybike-calc-app .sortable-item input,
+    #citybike-calc-app .sortable-item select {
+      background: #0a0c12;
+      border: 1px solid #9b59b6;
+      border-radius: 6px;
+      padding: 4px 6px;
+      color: white;
+      font-size: 11px;
+    }
+    #citybike-calc-app .sortable-item button {
+      background: #f39c12;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      margin: 0;
+      font-size: 11px;
+    }
+    #citybike-calc-app .sortable-item button.delete-btn {
+      background: #e74c3c;
+    }
+    #citybike-calc-app .sort-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    #citybike-calc-app .appearance-settings {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    #citybike-calc-app .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #2a2e45;
+      border-radius: 12px;
+      padding: 10px;
+    }
+    #citybike-calc-app .setting-row label {
+      font-weight: bold;
+      color: #c29bdf;
+    }
+    #citybike-calc-app .setting-row input[type="color"] {
+      width: 60px;
+      height: 40px;
+      border: 1px solid #9b59b6;
+      border-radius: 8px;
+      background: #0a0c12;
+      cursor: pointer;
+    }
+    #citybike-calc-app .setting-row input[type="range"] {
+      width: 200px;
+    }
+    #citybike-calc-app button {
+      background: #9b59b6;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin-top: 8px;
+      margin-right: 8px;
+    }
+    #citybike-calc-app button.secondary {
+      background: #3a3f5a;
+    }
+    #citybike-calc-app .verdict-block {
+      background: #3a2e5a;
+      color: #c29bdf;
+      border-left: 4px solid #c29bdf;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #citybike-calc-app .failure-prediction {
+      background: #1e1e2a;
+      border-radius: 14px;
+      padding: 12px;
+      margin-top: 12px;
+      border-left: 4px solid #9b59b6;
+    }
+    #citybike-calc-app .failure-item {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #2a2e45;
+      padding-bottom: 8px;
+    }
+    #citybike-calc-app .risk-low {
+      color: #7fff7f;
+    }
+    #citybike-calc-app .risk-medium {
+      color: #ffbf5f;
+    }
+    #citybike-calc-app .risk-high {
+      color: #ff7f7f;
+    }
+    #citybike-calc-app .reliability-score {
+      background: rgba(212, 184, 255, 0.2);
+      border: 1px solid #d4b8ff;
+      color: #ffffff;
+      padding: 8px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    #citybike-calc-app .failure-prediction,
+    #citybike-calc-app .failure-prediction * {
+      color: #ffffff;
+    }
+    #citybike-calc-app .failure-prediction h4 {
+      color: #d4b8ff;
+    }
+    #citybike-calc-app .controller-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    #citybike-calc-app .controller-row select {
+      flex: 1;
+      min-width: 180px;
+    }
+    #citybike-calc-app .recommendation-block {
+      margin-top: 16px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 18px;
+      padding: 12px;
+      border: 1px solid rgba(155,89,182,0.3);
+    }
+    #citybike-calc-app .badge {
+      display: inline-block;
+      background: #e74c3c;
+      color: white;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 12px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    #citybike-calc-app .components-list-block {
+      background: rgba(15,18,30,0.7);
+      border-radius: 18px;
+      padding: 8px 12px;
+      margin-top: 16px;
+      border: 1px solid rgba(155,89,182,0.5);
+      font-size: 11px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    #citybike-calc-app .components-list-block h4 {
+      color: #d4b8ff;
+      font-size: 13px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    #citybike-calc-app .components-list-block ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+    #citybike-calc-app .components-list-block li {
+      background: rgba(25,28,45,0.8);
+      padding: 2px 8px;
+      border-radius: 16px;
+      font-size: 10px;
+      color: #e0e4ff;
+      border: 1px solid rgba(155,89,182,0.3);
+    }
+    @media (max-width: 800px) {
+      #citybike-calc-app .ev-grid {
+        flex-direction: column;
+      }
+      #citybike-calc-app .ev-col {
+        width: 100%;
+      }
+      #citybike-calc-app .env-sliders {
+        flex-direction: column;
+        gap: 6px;
+      }
+      #citybike-calc-app .bike-svg {
+        width: 180px;
+        height: 180px;
+        opacity: 0.2;
+      }
+      #citybike-calc-app .subtitle {
+        font-size: 13px;
+      }
+      #citybike-calc-app .price-editor-grid {
+        grid-template-columns: 1fr;
+      }
+      #citybike-calc-app .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #citybike-calc-app .sortable-item .content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #citybike-calc-app .sort-controls {
+        flex-direction: column;
+      }
+      #citybike-calc-app .product-item {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #citybike-calc-app .add-product-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+
+  <canvas id="particles-canvas"></canvas>
+  <svg class="bike-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="75" r="30" fill="none" stroke="#9b59b6" stroke-width="2"/>
+    <path d="M60,75 L85,55 L115,55 L140,75" stroke="#9b59b6" stroke-width="2" fill="none"/>
+    <circle cx="60" cy="75" r="8" fill="none" stroke="#9b59b6" stroke-width="2"/>
+    <circle cx="140" cy="75" r="8" fill="none" stroke="#9b59b6" stroke-width="2"/>
+  </svg>
+
+  <div class="ev-calc-compact" id="evCalculator">
+    <div class="city-bike-title">CITY BIKE</div>
+    <div class="subtitle">by Джи-Джи</div>
+    <div class="ev-header">
+      <div class="ev-header-left">
+        <h3>⚡ Калькулятор электротранспорта</h3>
+        <p>Выберите конфигурацию — рассчитаем стоимость</p>
+      </div>
+      <div class="ev-header-right">
+        <div class="ev-time" id="liveClock">--:--:--</div>
+        <button class="save-config-btn" id="saveConfigBtn">💾 Сохранить конфиг (HTML-отчёт + прогноз)</button>
+      </div>
+    </div>
+    <div class="ev-grid">
+      <!-- Левая колонка -->
+      <div class="ev-col">
+        <div class="ev-block">
+          <div class="ev-block-title">🚴 База велосипеда</div>
+          <div id="bikeBaseSelectionArea">
+            <div id="frameTypeGroup" class="ev-row">
+              <span class="ev-label">Тип рамы</span>
+              <div class="ev-btns">
+                <label><input type="radio" name="bikeBaseType" value="mountain" checked> Горный</label>
+                <label><input type="radio" name="bikeBaseType" value="fat"> Фэт</label>
+                <label><input type="radio" name="bikeBaseType" value="space"> Пространственная</label>
+              </div>
+            </div>
+            <div id="bikeBaseMaterialGroup" class="ev-row">
+              <span class="ev-label">Материал</span>
+              <div class="ev-btns">
+                <label><input type="radio" name="bikeBaseMaterial" value="aluminum" checked> Алюминий</label>
+                <label><input type="radio" name="bikeBaseMaterial" value="steel"> Сталь</label>
+              </div>
+            </div>
+            <div id="wheelSizeGroup" class="ev-row">
+              <span class="ev-label">Размер колес</span>
+              <select id="wheelSizeSelect"></select>
+            </div>
+          </div>
+          <div class="ev-price-hint" id="bikeBasePriceHint"></div>
+          <div class="ev-row"><label class="ev-checkbox"><input type="checkbox" id="readyKitCheckbox"> Комплект для самостоятельной электрификации</label></div>
+          <div class="ev-row"><label class="ev-checkbox"><input type="checkbox" id="ownBikeCheckbox" checked> Свой велосипед</label></div>
+        </div>
+        <div class="ev-block">
+          <div class="ev-block-title">🔋 Аккумулятор</div>
+          <div class="ev-row"><span class="ev-label">Напряжение</span><div id="batteryVoltageGroup" class="ev-btns"></div></div>
+          <div class="ev-row"><span class="ev-label">Ёмкость</span><select id="batteryCapacitySelect"></select></div>
+          <div id="cellTypeGroup" class="ev-row"><span class="ev-label">Тип ячеек</span><div class="ev-btns"><label><input type="radio" name="cellType" value="lg" checked> LG 21700</label><label><input type="radio" name="cellType" value="china"> China A+ grade</label></div></div>
+          <div class="ev-price-hint" id="batteryPriceHint"></div>
+        </div>
+        <div class="ev-block">
+          <div class="ev-block-title">🛞 Электрификация</div>
+          <div class="ev-btns"><label><input type="radio" name="electrification" value="basic" data-price="12700" checked> Базовая (обычный обод)</label><label><input type="radio" name="electrification" value="premium" data-price="17200"> Премиум (e-MTX)</label></div>
+        </div>
+      </div>
+      <!-- Средняя колонка -->
+      <div class="ev-col">
+        <div class="ev-block">
+          <div class="ev-block-title">⚙️ Мотор-колесо</div>
+          <div class="ev-row"><span class="ev-label">Тип привода</span><div class="ev-btns"><label><input type="radio" name="motorType" value="geared" checked> Редукторный</label><label><input type="radio" name="motorType" value="dd"> Прямопривод</label></div></div>
+          <div class="ev-row" id="bikeTypeRow"><span class="ev-label">Тип мотора</span><div class="ev-btns" id="bikeTypeBtns"><label><input type="radio" name="bikeType" value="fat" checked> Фэтбайк</label><label><input type="radio" name="bikeType" value="mountain"> Горный</label></div></div>
+          <div class="ev-row"><span class="ev-label">Мощность</span><select id="motorPowerSelect"></select></div>
+          <div class="ev-price-hint" id="motorPriceHint"></div>
+        </div>
+        <div class="ev-block">
+          <div class="ev-block-title">🎛️ Контроллер + дисплей</div>
+          <div class="ev-row"><span class="ev-label">Контроллер</span><select id="controllerSelect"></select></div>
+          <div class="ev-row"><span class="ev-label">Дисплей</span><select id="displaySelect">
+            <option value="none" selected>Без дисплея / ключ/индикатор (1000 ₽)</option>
+            <option value="bw">Чёрно-белый дисплей (7000 ₽)</option>
+            <option value="color">Цветной дисплей (7500 ₽)</option>
+          </select></div>
+          <div class="ev-price-hint" id="controllerPriceHint"></div>
+        </div>
+        <div class="ev-block">
+          <div class="ev-block-title">⚙️ Опции</div>
+          <div class="ev-row"><span class="ev-label">PAS</span><label class="ev-checkbox" id="pasLabel"><input type="checkbox" id="pasCheckbox" checked> Ассистент</label></div>
+          <div class="ev-row"><span class="ev-label">Газ</span><div class="ev-btns" id="throttleBtns"><label id="throttleNoneLabel"><input type="radio" name="throttle" value="none"> Без ручки</label><label><input type="radio" name="throttle" value="standard"> Курок</label><label><input type="radio" name="throttle" value="half-twist"> Половинчатая</label></div></div>
+          <div class="ev-row"><span class="ev-label">Тормоза</span><div class="ev-btns"><label><input type="radio" name="brakes" value="stock" data-price="0" checked> Сток</label><label><input type="radio" name="brakes" value="hydraulic" data-price="12000"> Гидравлические DOT</label></div></div>
+          <div class="ev-row"><span class="ev-label">Аксессуары</span><div class="ev-btns"><label><input type="checkbox" id="mirrors"> Зеркала</label><label><input type="checkbox" id="wings"> Крылья</label></div></div>
+          <div id="dropoutDisplay" class="ev-row ev-static">✅ Усилители дропаутов: 1500₽ (при моторе ≥500W)</div>
+          <div class="ev-row ev-static">🎁 Фара в подарок</div>
+        </div>
+      </div>
+      <!-- Правая колонка (результат) -->
+      <div class="ev-col ev-result">
+        <div class="ev-block result-block">
+          <div class="ev-price">ИТОГО: <span id="totalPrice">0</span> ₽</div>
+          <div class="ev-specs" id="specs"></div>
+        </div>
+        <div class="estimation-block" id="estimationBlock">
+          <div class="estimation-title">📊 Прогноз производительности</div>
+          <div class="env-sliders">
+            <div class="slider-item"><label>⚖️ Вес райдера (кг)</label><input type="range" id="riderWeight" min="50" max="140" step="5" value="80"><div class="slider-value" id="weightValue">80 кг</div></div>
+            <div class="slider-item"><label>💨 Встречный ветер (м/с)</label><input type="range" id="headwind" min="0" max="12" step="1" value="2"><div class="slider-value" id="windValue">2 м/с</div></div>
+            <div class="slider-item"><label>⛰️ Уклон дороги (%)</label><input type="range" id="slope" min="-5" max="15" step="1" value="0"><div class="slider-value" id="slopeValue">0%</div></div>
+          </div>
+          <div id="summaryText" class="summary-text">📌 Выберите конфигурацию для расчёта прогноза...</div>
+          <div id="warningMsg" class="warning" style="display: none;"></div>
+        </div>
+        <div id="recommendationsContainer" class="recommendation-block"></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="admin-btn" id="adminBtn" hidden></button>
+
+  <!-- Модальное окно админ-панели -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>⚙️ Админ-панель</h2>
+      <div style="display: flex; gap: 10px; border-bottom: 1px solid #9b59b6; margin-bottom: 15px; flex-wrap: wrap;">
+        <button id="tabStatsBtn" style="background:#9b59b6;">📊 Статистика</button>
+        <button id="tabPricesBtn" class="secondary">💰 Цены</button>
+        <button id="tabComponentsBtn" class="secondary">🔧 Комплектующие</button>
+        <button id="tabProductsBtn" class="secondary">🛍️ Товары</button>
+        <button id="tabAppearanceBtn" class="secondary">🎨 Оформление</button>
+      </div>
+      <div id="tabStats" class="stats-section" style="border-top: none;">
+        <div class="stats-grid" id="statsContainer"></div>
+        <div style="margin-top: 16px; text-align: center;">
+          <button id="exportStatsBtn">📥 Экспорт статистики (JSON)</button>
+          <button id="resetStatsBtn" style="background:#e67e22;">🗑️ Сбросить статистику</button>
+        </div>
+      </div>
+      <div id="tabPrices" style="display: none;">
+        <div id="priceEditorContainer"></div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button id="savePricesBtn" style="background:#2ecc71;">💾 Сохранить цены</button>
+          <button id="resetPricesBtn" style="background:#e67e22;">↺ Сбросить к стандартным</button>
+        </div>
+      </div>
+      <div id="tabComponents" style="display: none;">
+        <h3>Управление моторами, контроллерами и аккумуляторами</h3>
+        <div class="components-editor">
+          <div class="component-category">
+            <h4>⚙️ Моторы</h4>
+            <div class="sort-controls"><button id="sortMotorsByPowerBtn" class="secondary">📊 Сортировать по мощности</button></div>
+            <div id="motorsList" class="component-list"></div>
+            <div class="add-component-form" id="addMotorForm">
+              <select id="motorTypeSelect"><option value="geared">Редукторный</option><option value="dd">Прямопривод</option></select>
+              <select id="motorBikeTypeSelect"><option value="fat">Фэтбайк</option><option value="mountain">Горный</option></select>
+              <input type="text" id="motorPower" placeholder="Мощность (Вт)" value="500" style="width:80px;">
+              <select id="motorPosition"><option value="front">перед</option><option value="rear">зад</option></select>
+              <input type="number" id="motorPrice" placeholder="Цена (₽)" value="20000">
+              <button id="addMotorBtn">➕ Добавить мотор</button>
+            </div>
+          </div>
+          <div class="component-category">
+            <h4>🎛️ Контроллеры</h4>
+            <div class="sort-controls"><button id="sortControllersByCurrentBtn" class="secondary">📊 Сортировать по току</button></div>
+            <div id="controllersList" class="component-list"></div>
+            <div class="add-component-form" id="addControllerForm">
+              <input type="text" id="controllerId" placeholder="ID" style="width:80px;">
+              <input type="text" id="controllerLabel" placeholder="Название" style="min-width:150px;">
+              <input type="text" id="controllerVoltage" placeholder="Напряжения (36,48,60,72)" value="48">
+              <input type="number" id="controllerCurrent" placeholder="Ток (A)" value="25">
+              <input type="number" id="controllerPriceInput" placeholder="Цена (₽)" value="9000">
+              <button id="addControllerBtn">➕ Добавить контроллер</button>
+            </div>
+          </div>
+          <div class="component-category">
+            <h4>🔋 Аккумуляторы</h4>
+            <div class="sort-controls"><button id="sortBatteriesByVoltageBtn" class="secondary">📊 Сортировать</button></div>
+            <div id="batteriesList" class="component-list"></div>
+            <div class="add-component-form" id="addBatteryForm">
+              <select id="batteryCellType"><option value="lg">LG 21700</option><option value="china">China A+</option></select>
+              <input type="text" id="batteryVoltage" placeholder="Напряжение" value="48" style="width:80px;">
+              <input type="text" id="batteryCapacity" placeholder="Ёмкость (Ah)" value="20" style="width:80px;">
+              <input type="number" id="batteryPriceInput" placeholder="Цена (₽)" value="28000">
+              <button id="addBatteryBtn">➕ Добавить АКБ</button>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button id="resetComponentsBtn" style="background:#e67e22;">↺ Сбросить к стандартным</button>
+        </div>
+      </div>
+      <div id="tabProducts" style="display: none;">
+        <h3>Управление товарами</h3>
+        <div id="productsList"></div>
+        <div class="add-product-form">
+          <input type="text" id="newProductName" placeholder="Название" style="flex:2;">
+          <input type="text" id="newProductLink" placeholder="Ссылка" style="flex:3;">
+          <select id="newProductBgColor"><option value="">Фон</option><option value="#ffcccc">Красный</option><option value="#ffffcc">Жёлтый</option><option value="#ccffcc">Зелёный</option><option value="#ccccff">Синий</option></select>
+          <select id="newProductBtnColor"><option value="">Кнопка</option><option value="#e67e22">Оранжевая</option><option value="#e74c3c">Красная</option><option value="#2ecc71">Зелёная</option></select>
+          <input type="text" id="newProductBadge" placeholder="Метка" style="width:100px;">
+          <button id="addProductBtn">➕ Добавить</button>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button id="saveProductsBtn" style="background:#2ecc71;">💾 Сохранить</button>
+          <button id="resetProductsBtn" style="background:#e67e22;">↺ Сбросить</button>
+        </div>
+      </div>
+      <div id="tabAppearance" style="display: none;">
+        <div class="appearance-settings">
+          <div class="setting-row"><label>✨ Частицы</label><label class="ev-checkbox"><input type="checkbox" id="toggleParticles" checked> Вкл</label></div>
+          <div class="setting-row"><label>🎨 Цвет фона</label><input type="color" id="bgColorPicker" value="#0a0c12"></div>
+          <div class="setting-row"><label>💎 Прозрачность</label><input type="range" id="cardOpacity" min="0.5" max="1" step="0.01" value="0.85"><span id="opacityValue">0.85</span></div>
+          <div class="setting-row"><label>🌀 Размытие</label><input type="range" id="cardBlur" min="0" max="12" step="1" value="4"><span id="blurValue">4px</span></div>
+          <button id="resetAppearanceBtn">↺ Сбросить</button>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button id="closeModalBtn" class="secondary">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.getElementById('citybike-calc-app');
+      
+      // ---------- ЧАСТИЦЫ ----------
+      const canvas = root.querySelector('#particles-canvas');
+      const ctx2 = canvas.getContext('2d');
+      let width2, height2;
+      let particles = [];
+      let animationId = null;
+      let particlesEnabled = true;
+
+      function initCanvas() { 
+        const rect = root.getBoundingClientRect();
+        width2 = rect.width; 
+        height2 = rect.height; 
+        canvas.width = width2; 
+        canvas.height = height2; 
+      }
+      class Particle { 
+        constructor() { 
+          this.x = Math.random() * width2; 
+          this.y = Math.random() * height2; 
+          this.size = Math.random() * 2 + 0.5; 
+          this.speedX = (Math.random() - 0.5) * 0.3; 
+          this.speedY = (Math.random() - 0.5) * 0.2; 
+          this.opacity = Math.random() * 0.5 + 0.2; 
+          this.color = `rgba(155, 89, 182, ${this.opacity})`; 
+        } 
+        update() { 
+          this.x += this.speedX; 
+          this.y += this.speedY; 
+          if (this.x < 0) this.x = width2; 
+          if (this.x > width2) this.x = 0; 
+          if (this.y < 0) this.y = height2; 
+          if (this.y > height2) this.y = 0; 
+        } 
+        draw() { 
+          ctx2.beginPath(); 
+          ctx2.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
+          ctx2.fillStyle = this.color; 
+          ctx2.fill(); 
+        } 
+      }
+      function initParticles() { particles = []; for (let i = 0; i < 70; i++) particles.push(new Particle()); }
+      function animateParticles() { 
+        if (!particlesEnabled) return; 
+        ctx2.clearRect(0, 0, width2, height2); 
+        for (let p of particles) { p.update(); p.draw(); } 
+        animationId = requestAnimationFrame(animateParticles); 
+      }
+      function stopParticles() { 
+        if (animationId) { cancelAnimationFrame(animationId); animationId = null; } 
+        ctx2.clearRect(0, 0, width2, height2); 
+        canvas.style.opacity = '0'; 
+      }
+      function startParticles() { 
+        canvas.style.opacity = '1'; 
+        if (!particles.length) initParticles(); 
+        if (animationId) cancelAnimationFrame(animationId); 
+        animateParticles(); 
+      }
+      function setParticlesEnabled(enabled) { 
+        particlesEnabled = enabled; 
+        if (enabled) { canvas.style.display = 'block'; startParticles(); } 
+        else { stopParticles(); canvas.style.display = 'none'; } 
+      }
+      
+      const resizeObserver = new ResizeObserver(() => {
+        initCanvas();
+        if (particlesEnabled) { initParticles(); startParticles(); }
+      });
+      resizeObserver.observe(root);
+
+      function updateClock() { root.querySelector('#liveClock').innerText = new Date().toLocaleTimeString('ru-RU'); }
+      updateClock(); setInterval(updateClock, 1000);
+
+      // ---------- ЦЕНЫ ----------
+      let defaultPrices = {
+        frame: { mountain_al: 35000, mountain_steel: 20000, fat_al: 50000, fat_steel: 25000, space: 130000 },
+        electrification: { basic: 12700, premium: 17200 },
+        options: { pas: 1500, throttle_std: 1500, throttle_half: 3500, brakes_hydr: 12000, mirrors: 1500, wings: 1500, dropout: 1500 },
+        display: { none: 1000, bw: 7000, color: 7500 }
+      };
+
+      function loadCustomPrices() { 
+        const saved = localStorage.getItem('cityBikePrices'); 
+        if (saved) { 
+          try { 
+            const custom = JSON.parse(saved); 
+            function mergeDeep(t,s){for(const k in s){if(s[k]&&typeof s[k]==='object'&&!Array.isArray(s[k])){if(!t[k]) t[k]={}; mergeDeep(t[k],s[k]);}else t[k]=s[k];}} 
+            mergeDeep(defaultPrices,custom); 
+          }catch(e){} 
+        } 
+      }
+      function saveCustomPricesToLocalStorage() { localStorage.setItem('cityBikePrices', JSON.stringify(defaultPrices)); }
+      loadCustomPrices();
+
+      // ---------- ДИНАМИЧЕСКИЕ КОМПОНЕНТЫ ----------
+      let motors = []; let controllers = []; let batteries = [];
+      const defaultMotors = [
+        { type:"geared", bikeType:"fat", power:"500", position:"front", price:22000, id:"geared_fat_500_front", color:"", label:"" },
+        { type:"geared", bikeType:"fat", power:"750", position:"rear", price:26000, id:"geared_fat_750_rear", color:"", label:"" },
+        { type:"geared", bikeType:"fat", power:"950", position:"rear", price:16000, id:"geared_fat_950_rear", color:"", label:"" },
+        { type:"geared", bikeType:"fat", power:"1000", position:"rear", price:28000, id:"geared_fat_1000_rear", color:"", label:"" },
+        { type:"geared", bikeType:"fat", power:"1000", position:"rear", price:16000, id:"geared_fat_1000ch_rear", label:"1000Ch W", color:"" },
+        { type:"geared", bikeType:"fat", power:"1200", position:"rear", price:34000, id:"geared_fat_1200_rear", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"250", position:"front", price:15700, id:"geared_mountain_250_front", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"250", position:"rear", price:15700, id:"geared_mountain_250_rear", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"350", position:"front", price:16800, id:"geared_mountain_350_front", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"350", position:"rear", price:16800, id:"geared_mountain_350_rear", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"500", position:"front", price:18000, id:"geared_mountain_500_front", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"500", position:"rear", price:18000, id:"geared_mountain_500_rear", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"750", position:"rear", price:25000, id:"geared_mountain_750_rear", color:"", label:"" },
+        { type:"geared", bikeType:"mountain", power:"1000", position:"rear", price:28000, id:"geared_mountain_1000_rear", color:"", label:"" },
+        { type:"dd", bikeType:"fat", power:"1000", position:"rear", price:35000, id:"dd_fat_1000", color:"", label:"" },
+        { type:"dd", bikeType:"fat", power:"1500", position:"rear", price:25000, id:"dd_fat_1500", color:"", label:"" },
+        { type:"dd", bikeType:"fat", power:"2000", position:"rear", price:28000, id:"dd_fat_2000", color:"", label:"" },
+        { type:"dd", bikeType:"fat", power:"3000", position:"rear", price:45000, id:"dd_fat_3000", color:"", label:"" },
+        { type:"dd", bikeType:"fat", power:"5000", position:"rear", price:60000, id:"dd_fat_5000", color:"", label:"" },
+        { type:"dd", bikeType:"mountain", power:"1000", position:"rear", price:21000, id:"dd_mountain_1000", color:"", label:"" },
+        { type:"dd", bikeType:"mountain", power:"1500", position:"rear", price:25000, id:"dd_mountain_1500", color:"", label:"" },
+        { type:"dd", bikeType:"mountain", power:"2000", position:"rear", price:28000, id:"dd_mountain_2000", color:"", label:"" }
+      ];
+      const defaultControllers = [
+        { id:"c1", label:"36-48V 15A (250-350W)", voltage:["36","48"], current:15, price: 6000, color:"" },
+        { id:"c2", label:"36-48V 18A (350W)", voltage:["36","48"], current:18, price: 7000, color:"" },
+        { id:"c4", label:"36-48V 25A (500W)", voltage:["36","48"], current:25, price: 9000, color:"" },
+        { id:"c5", label:"48V 30A (750W)", voltage:["48"], current:30, price:10000, color:"" },
+        { id:"c5_60", label:"60V 30A (750W)", voltage:["60"], current:30, price:11000, color:"" },
+        { id:"c6", label:"36-72V 35A (1000W)", voltage:["36","48","60","72"], current:35, price:11000, color:"" },
+        { id:"c7", label:"48-60V 40A (1200W)", voltage:["48","60"], current:40, price:13000, color:"" },
+        { id:"c7_72", label:"72V 40A (1200W)", voltage:["72"], current:40, price:23000, color:"" },
+        { id:"c8_mt", label:"48-60V 50A (1500W горный DD)", voltage:["48","60"], current:50, price:17000, color:"" },
+        { id:"c8_fat", label:"48-60V 45A (1500W фэт DD)", voltage:["48","60"], current:45, price:17000, color:"" },
+        { id:"c9", label:"48-60-72V 60A (2000W)", voltage:["48","60","72"], current:60, price:18000, color:"" },
+        { id:"c10", label:"48-60-72V 80A (3000W)", voltage:["48","60","72"], current:80, price:21000, color:"" },
+        { id:"c11", label:"48-60-72V 120A (5000W)", voltage:["48","60","72"], current:120, price:28000, color:"" },
+        { id:"c12", label:"48-60-72V 50A (1000W DD фэт)", voltage:["48","60","72"], current:50, price: 8000, color:"" }
+      ];
+      const defaultBatteries = [
+        { voltage:"36", capacity:"10", cellType:"lg", price:22365 }, { voltage:"36", capacity:"20", cellType:"lg", price:31605 }, { voltage:"36", capacity:"55", cellType:"lg", price:78750 },
+        { voltage:"48", capacity:"10", cellType:"lg", price:24150 }, { voltage:"48", capacity:"20", cellType:"lg", price:36120 }, { voltage:"48", capacity:"50", cellType:"lg", price:82110 }, { voltage:"48", capacity:"55", cellType:"lg", price:89250 },
+        { voltage:"60", capacity:"10", cellType:"lg", price:25935 }, { voltage:"60", capacity:"20", cellType:"lg", price:42525 }, { voltage:"60", capacity:"50", cellType:"lg", price:90720 }, { voltage:"60", capacity:"55", cellType:"lg", price:105000 },
+        { voltage:"72", capacity:"10", cellType:"lg", price:30030 }, { voltage:"72", capacity:"20", cellType:"lg", price:60060 }, { voltage:"72", capacity:"50", cellType:"lg", price:118650 }, { voltage:"72", capacity:"55", cellType:"lg", price:141750 },
+        { voltage:"36", capacity:"10", cellType:"china", price:18000 }, { voltage:"36", capacity:"20", cellType:"china", price:24000 }, { voltage:"36", capacity:"55", cellType:"china", price:78750 },
+        { voltage:"48", capacity:"10", cellType:"china", price:20000 }, { voltage:"48", capacity:"20", cellType:"china", price:28000 }, { voltage:"48", capacity:"50", cellType:"china", price:60000 }, { voltage:"48", capacity:"55", cellType:"china", price:89250 },
+        { voltage:"60", capacity:"10", cellType:"china", price:21000 }, { voltage:"60", capacity:"20", cellType:"china", price:35000 }, { voltage:"60", capacity:"50", cellType:"china", price:75000 }, { voltage:"60", capacity:"55", cellType:"china", price:105000 },
+        { voltage:"72", capacity:"10", cellType:"china", price:25000 }, { voltage:"72", capacity:"20", cellType:"china", price:50000 }, { voltage:"72", capacity:"50", cellType:"china", price:95000 }, { voltage:"72", capacity:"55", cellType:"china", price:141750 }
+      ];
+
+      function loadComponents() {
+        const savedMotors = localStorage.getItem('cityBikeMotors');
+        const savedControllers = localStorage.getItem('cityBikeControllers');
+        const savedBatteries = localStorage.getItem('cityBikeBatteries');
+        motors = savedMotors ? JSON.parse(savedMotors) : JSON.parse(JSON.stringify(defaultMotors));
+        controllers = savedControllers ? JSON.parse(savedControllers) : JSON.parse(JSON.stringify(defaultControllers));
+        batteries = savedBatteries ? JSON.parse(savedBatteries) : JSON.parse(JSON.stringify(defaultBatteries));
+        
+        controllers.forEach(c => { 
+          if (c.price >= 13000) { c.price -= 7000; }
+        });
+        
+        motors.forEach(m => { if (m.power === undefined) m.power = String(m.power || 0); if (m.color === undefined) m.color = ""; if (m.label === undefined) m.label = ""; });
+        controllers.forEach(c => { if (c.color === undefined) c.color = ""; });
+        saveComponents();
+      }
+      function saveComponents() { 
+        localStorage.setItem('cityBikeMotors', JSON.stringify(motors)); 
+        localStorage.setItem('cityBikeControllers', JSON.stringify(controllers)); 
+        localStorage.setItem('cityBikeBatteries', JSON.stringify(batteries)); 
+      }
+      function resetComponentsToDefault() { 
+        motors = JSON.parse(JSON.stringify(defaultMotors)); 
+        controllers = JSON.parse(JSON.stringify(defaultControllers)); 
+        batteries = JSON.parse(JSON.stringify(defaultBatteries)); 
+        saveComponents(); 
+        renderComponentsEditor(); 
+        updateMotorUI(); 
+        updateControllerUI(); 
+        updateBatteryUI(); 
+        updateAll(); 
+      }
+
+      function sortMotorsByPower() { motors.sort((a,b) => (parseInt(a.power)||0) - (parseInt(b.power)||0)); saveComponents(); renderComponentsEditor(); updateMotorUI(); updateAll(); }
+      function sortControllersByCurrent() { controllers.sort((a,b) => a.current - b.current); saveComponents(); renderComponentsEditor(); updateControllerUI(); updateAll(); }
+      function sortBatteriesByVoltage() { batteries.sort((a,b) => (parseInt(a.voltage)||0) - (parseInt(b.voltage)||0) || (parseInt(a.capacity)||0) - (parseInt(b.capacity)||0)); saveComponents(); renderComponentsEditor(); updateBatteryUI(); updateAll(); }
+
+      function getMotorPriceById(mid) { const m = motors.find(m => m.id === mid); return m ? m.price : 0; }
+      function getControllerPriceById(cid) { const c = controllers.find(c => c.id === cid); return c ? c.price : 0; }
+      function getDisplayPrice() {
+        const val = root.querySelector('#displaySelect').value;
+        return defaultPrices.display[val] || 0;
+      }
+      function getBatteryPriceByParams(v, cap, ct) { const b = batteries.find(b => b.voltage == v && b.capacity == cap && b.cellType === ct); return b ? b.price : 0; }
+
+      let currentVoltage = "48", currentCapacity = "10", currentCellType = "lg";
+      let currentMotorType = "geared", currentBikeType = "fat", currentMotorPower = "";
+      let currentControllerId = "c4";
+      let currentWheelSize = "20";
+      const wheelOptions = { mountain: [ { value: "20", label: "20\"" }, { value: "26", label: "26\"" }, { value: "27.5", label: "27.5\"" }, { value: "29", label: "29\"" } ], fat: [ { value: "20x4", label: "20\" x 4.0\"" }, { value: "26x4", label: "26\" x 4.0\"" } ] };
+
+      function updateWheelSizeOptions() {
+        const base = root.querySelector('input[name="bikeBaseType"]:checked').value;
+        const bikeType = base === "space" ? "fat" : base;
+        const options = wheelOptions[bikeType] || wheelOptions.mountain;
+        const select = root.querySelector("#wheelSizeSelect");
+        select.innerHTML = options.map(opt => `<option value="${opt.value}" ${currentWheelSize === opt.value ? "selected" : ""}>${opt.label}</option>`).join("");
+        if (!options.some(o => o.value === currentWheelSize)) { currentWheelSize = options[0].value; select.value = currentWheelSize; }
+        else { select.value = currentWheelSize; }
+        currentWheelSize = select.value;
+        updateAll();
+      }
+      function syncBikeTypeWithBase() {
+        const base = root.querySelector('input[name="bikeBaseType"]:checked').value;
+        const fatRadio = root.querySelector('input[name="bikeType"][value="fat"]');
+        const mountainRadio = root.querySelector('input[name="bikeType"][value="mountain"]');
+        if (base === "mountain") {
+          mountainRadio.closest('label').style.display = 'inline-flex';
+          fatRadio.closest('label').style.display = 'none';
+          if (currentBikeType === "fat") { mountainRadio.checked = true; currentBikeType = "mountain"; }
+        } else {
+          fatRadio.closest('label').style.display = 'inline-flex';
+          mountainRadio.closest('label').style.display = 'none';
+          if (currentBikeType === "mountain") { fatRadio.checked = true; currentBikeType = "fat"; }
+        }
+        if (base === "space") {
+          const ddRadio = root.querySelector('input[name="motorType"][value="dd"]');
+          if (ddRadio && !ddRadio.checked) { ddRadio.checked = true; currentMotorType = "dd"; }
+        }
+        updateMotorUI();
+        updateWheelSizeOptions();
+      }
+      function updateVoltageAvailability() {
+        const base = root.querySelector('input[name="bikeBaseType"]:checked').value;
+        const allowed = base === "space" ? ["60","72"] : ["36","48","60","72"];
+        const btnsDiv = root.querySelector("#batteryVoltageGroup");
+        btnsDiv.innerHTML = allowed.map(v => `<label><input type="radio" name="batteryVoltage" value="${v}" ${currentVoltage===v?'checked':''}> ${v}V</label>`).join("");
+        btnsDiv.querySelectorAll('input[name="batteryVoltage"]').forEach(r => r.addEventListener("change", e => { currentVoltage = e.target.value; updateBatteryUI(); updateMotorUI(); updateAll(); }));
+        if (!root.querySelector('input[name="batteryVoltage"]:checked') && allowed.length) { 
+          currentVoltage = allowed[0]; 
+          root.querySelector(`input[name="batteryVoltage"][value="${allowed[0]}"]`).checked = true; 
+        }
+        updateMotorUI();
+        updateWheelSizeOptions();
+      }
+      function updateBatteryUI() {
+        const select = root.querySelector("#batteryCapacitySelect");
+        const caps = batteries.filter(b => b.voltage == currentVoltage && b.cellType === currentCellType).map(b => b.capacity);
+        const uniqueCaps = [...new Set(caps)].sort((a,b)=>parseInt(a)-parseInt(b));
+        select.innerHTML = uniqueCaps.map(cap => `<option value="${cap}" ${currentCapacity === cap ? "selected" : ""}>${cap} Ah ${cap === "55" ? "(пакеты NMC)" : ""}</option>`).join("");
+        if (!uniqueCaps.includes(currentCapacity) && uniqueCaps.length) currentCapacity = uniqueCaps[0];
+        else if (uniqueCaps.length) select.value = currentCapacity;
+        root.querySelector("#cellTypeGroup").style.display = currentCapacity === "55" ? "none" : "flex";
+        const price = getBatteryPriceByParams(currentVoltage, currentCapacity, currentCellType);
+        root.querySelector("#batteryPriceHint").innerHTML = `${price.toLocaleString()} ₽ (${currentCellType === "lg" ? "LG 21700" : (currentCapacity==="55"?"пакеты NMC":"China A+ grade")})`;
+        updateAll();
+      }
+      function getBatteryPrice() { return getBatteryPriceByParams(currentVoltage, currentCapacity, currentCellType); }
+      function getMotorPrice() { return getMotorPriceById(currentMotorPower); }
+      function getControllerPrice() { return getControllerPriceById(currentControllerId); }
+      function getBikeBasePrice() { 
+        if (root.querySelector('#readyKitCheckbox').checked || root.querySelector('#ownBikeCheckbox').checked) return 0; 
+        const t = root.querySelector('input[name="bikeBaseType"]:checked').value; 
+        const m = root.querySelector('input[name="bikeBaseMaterial"]:checked').value; 
+        if (t === 'space') return defaultPrices.frame.space; 
+        if (t === 'mountain') return m === 'aluminum' ? defaultPrices.frame.mountain_al : defaultPrices.frame.mountain_steel; 
+        return m === 'aluminum' ? defaultPrices.frame.fat_al : defaultPrices.frame.fat_steel; 
+      }
+      function getElectrificationPrice() { 
+        if (root.querySelector('#readyKitCheckbox').checked) return 0; 
+        const sel = root.querySelector('input[name="electrification"]:checked'); 
+        return sel ? defaultPrices.electrification[sel.value] : 0; 
+      }
+      function getPasPrice() { return root.querySelector("#pasCheckbox").checked ? defaultPrices.options.pas : 0; }
+      function getThrottlePrice() { 
+        const val = root.querySelector('input[name="throttle"]:checked')?.value; 
+        if (val === 'standard') return defaultPrices.options.throttle_std; 
+        if (val === 'half-twist') return defaultPrices.options.throttle_half; 
+        return 0; 
+      }
+      function getBrakesPrice() { return root.querySelector('input[name="brakes"]:checked')?.value === 'hydraulic' ? defaultPrices.options.brakes_hydr : 0; }
+      function getDropoutPrice() { return getMotorPowerWatt() >= 500 ? defaultPrices.options.dropout : 0; }
+      function getMirrorsPrice() { return root.querySelector("#mirrors").checked ? defaultPrices.options.mirrors : 0; }
+      function getWingsPrice() { return root.querySelector("#wings").checked ? defaultPrices.options.wings : 0; }
+
+      function getMotorPowerWatt() { 
+        if (!currentMotorPower) return 0; 
+        const m = motors.find(m => m.id === currentMotorPower); 
+        if (!m) return 0; 
+        const p = parseInt(String(m.power).replace(/[^0-9]/g,''),10); 
+        return isNaN(p) ? 0 : p; 
+      }
+      function isMotorAvailable(motorType, motorPower, voltage) {
+        const base = root.querySelector('input[name="bikeBaseType"]:checked')?.value;
+        if (base === "space") { if (motorType !== "dd") return false; if (!(voltage === "60" || voltage === "72")) return false; const pn = parseInt(motorPower); return (pn === 3000 || pn === 5000); }
+        const pn = parseInt(motorPower);
+        if (motorType === "geared") {
+          if (currentBikeType === "fat") {
+            if (voltage === "36") return pn === 500 && motorPower.includes("front");
+            if (pn === 500 && voltage !== "48") return false;
+            if (voltage === "48") return [500, 750, 950, 1000, 1200].includes(pn);
+            if (voltage === "60") return [750, 950, 1000, 1200].includes(pn);
+            if (voltage === "72") return [950, 1000, 1200].includes(pn);
+            return false;
+          } else {
+            if (voltage === "36") return [250,350,500].includes(pn);
+            if (voltage === "48") return [250,350,500,750,1000].includes(pn);
+            if (voltage === "60") return [750,1000].includes(pn);
+            if (voltage === "72") return [1000].includes(pn);
+            return false;
+          }
+        } else {
+          if (currentBikeType === "fat") {
+            if (pn === 1000) return (voltage === "48" || voltage === "60" || voltage === "72");
+            if (voltage === "48") return [1500].includes(pn);
+            if (voltage === "60") return [1500,3000,5000].includes(pn);
+            if (voltage === "72") return [3000,5000].includes(pn);
+            return false;
+          } else {
+            if (voltage === "48") return [1000,1500,2000].includes(pn);
+            if (voltage === "60") return [1000,1500,2000].includes(pn);
+            return false;
+          }
+        }
+      }
+      function getRequiredCurrent(motorW, motorType, bikeType) {
+        if (motorType === "geared") {
+          if (motorW === 250) return 15;
+          if (motorW === 350) return 18;
+          if (motorW === 500) return 25;
+          if (motorW === 750) return 30;
+          if (motorW === 800) return 32;
+          if (motorW === 950) return 35;
+          if (motorW === 1000) return 35;
+          if (motorW === 1200) return 40;
+          return Math.round(motorW / 48 * 1.2);
+        } else {
+          if (bikeType === "mountain") { if (motorW === 1000) return 35; if (motorW === 1500) return 50; if (motorW === 2000) return 60; }
+          else { if (motorW === 1000) return 50; if (motorW === 1500) return 45; if (motorW === 3000) return 80; if (motorW === 5000) return 120; }
+          return Math.round(motorW / 48 * 1.2);
+        }
+      }
+      function isControllerAvailableForMotor(motorW, motorType, bikeType, voltage) {
+        const req = getRequiredCurrent(motorW, motorType, bikeType);
+        if (req === null) return false;
+        return controllers.some(c => c.voltage.includes(voltage) && c.current === req);
+      }
+      function getAvailableMotorOptions() {
+        const motorType = root.querySelector('input[name="motorType"]:checked')?.value;
+        const bikeType = root.querySelector('input[name="bikeType"]:checked')?.value;
+        if (!motorType || !bikeType) return [];
+        return motors.filter(m => {
+          if (m.type !== motorType || m.bikeType !== bikeType) return false;
+          if (!isMotorAvailable(m.type, m.power, currentVoltage)) return false;
+          const pn = parseInt(String(m.power).replace(/[^0-9]/g,''),10);
+          if (isNaN(pn)) return false;
+          return isControllerAvailableForMotor(pn, m.type, m.bikeType, currentVoltage);
+        });
+      }
+      function updateMotorUI() {
+        const opts = getAvailableMotorOptions();
+        const select = root.querySelector("#motorPowerSelect");
+        if (opts.length === 0) { select.innerHTML = '<option disabled>Нет доступных моторов</option>'; currentMotorPower = null; root.querySelector("#motorPriceHint").innerHTML = "⚠️ Мотор недоступен"; updateControllerUI(); updateAll(); return; }
+        select.innerHTML = opts.map(m => `<option value="${m.id}" ${currentMotorPower === m.id ? "selected" : ""}>${m.label ? m.label : `${m.power} Вт (${m.position === 'front' ? 'перед' : 'зад'})`}</option>`).join("");
+        if (!opts.some(m => m.id === currentMotorPower)) { currentMotorPower = opts[0].id; select.value = currentMotorPower; }
+        const mp = getMotorPrice();
+        root.querySelector("#motorPriceHint").innerHTML = `${mp.toLocaleString()} ₽`;
+        updateControllerUI();
+        updateAll();
+      }
+      function getAvailableControllers() {
+        const motorW = getMotorPowerWatt();
+        const req = getRequiredCurrent(motorW, currentMotorType, currentBikeType);
+        if (req === null) return [];
+        return controllers.filter(c => c.voltage.includes(currentVoltage) && c.current === req);
+      }
+      function updateControllerUI() {
+        const avail = getAvailableControllers();
+        const select = root.querySelector("#controllerSelect");
+        if (avail.length === 0) { select.innerHTML = '<option disabled>Нет подходящих контроллеров</option>'; root.querySelector("#controllerPriceHint").innerHTML = "⚠️ Нет подходящих контроллеров"; currentControllerId = null; updateAll(); return; }
+        select.innerHTML = avail.map(c => `<option value="${c.id}" ${currentControllerId === c.id ? "selected" : ""}>${c.label} — ${c.price.toLocaleString()} ₽</option>`).join("");
+        if (!avail.some(c => c.id === currentControllerId)) { currentControllerId = avail[0].id; select.value = currentControllerId; }
+        const cp = getControllerPrice(); const dp = getDisplayPrice();
+        let hintText = `Контроллер: ${cp.toLocaleString()} ₽`;
+        if (dp > 0) hintText += ` + дисплей: ${dp.toLocaleString()} ₽`;
+        else hintText += ` (без дисплея)`;
+        root.querySelector("#controllerPriceHint").innerHTML = hintText;
+        updateAll();
+      }
+      function getControllerCurrent() { const c = controllers.find(c => c.id === currentControllerId); return c ? c.current : 0; }
+
+      function updateBikeBaseMaterialVisibility() { 
+        const t = root.querySelector('input[name="bikeBaseType"]:checked')?.value; 
+        const mg = root.querySelector("#bikeBaseMaterialGroup"); 
+        if (t === "space") { mg.style.display = "none"; root.querySelector('input[name="bikeBaseMaterial"][value="steel"]').checked = true; } 
+        else mg.style.display = "flex"; 
+      }
+      function updateBikeBasePriceHint() { 
+        const p = getBikeBasePrice(); 
+        const h = root.querySelector("#bikeBasePriceHint"); 
+        const r = root.querySelector('#readyKitCheckbox').checked; 
+        const o = root.querySelector('#ownBikeCheckbox').checked; 
+        if (r) h.innerHTML = `0 ₽ (комплект)`; 
+        else if (o) h.innerHTML = `0 ₽ (свой)`; 
+        else h.innerHTML = `${p.toLocaleString()} ₽`; 
+      }
+      function updateThrottleVisibility() { 
+        const pas = root.querySelector("#pasCheckbox").checked; 
+        const none = root.querySelector("#throttleNoneLabel"); 
+        if (pas) none.style.display = 'inline-flex'; 
+        else { none.style.display = 'none'; if (root.querySelector('input[name="throttle"]:checked')?.value === "none") root.querySelector('input[name="throttle"][value="standard"]').checked = true; } 
+        updatePasLock(); 
+      }
+      function updatePasLock() { 
+        const tn = root.querySelector('input[name="throttle"]:checked')?.value === "none"; 
+        const pc = root.querySelector("#pasCheckbox"); 
+        if (tn) { pc.checked = true; pc.disabled = true; } 
+        else pc.disabled = false; 
+      }
+      function updateCheckboxExclusivity(changed) { 
+        const r = root.querySelector('#readyKitCheckbox'); 
+        const o = root.querySelector('#ownBikeCheckbox'); 
+        if (changed === 'readyKit' && r.checked) o.checked = false; 
+        else if (changed === 'ownBike' && o.checked) r.checked = false; 
+        updateBikeBasePriceHint(); 
+        updateAll(); 
+      }
+
+      function predictFailures() {
+        const motorW = getMotorPowerWatt();
+        const controllerA = getControllerCurrent();
+        const cap = parseFloat(currentCapacity);
+        const isHydraulic = root.querySelector('input[name="brakes"]:checked')?.value === 'hydraulic';
+        const frameMaterial = root.querySelector('input[name="bikeBaseMaterial"]:checked')?.value;
+        const frameType = root.querySelector('input[name="bikeBaseType"]:checked')?.value;
+        const hasDropout = getDropoutPrice() > 0;
+        const cRate = controllerA / cap;
+        const is55Pack = currentCapacity === "55";
+        const risks = [];
+        let totalRiskScore = 0;
+
+        let batteryRisk = { level: 'low', text: '', colorClass: 'risk-low', score: 0 };
+        if (!is55Pack) {
+          if (cRate >= 3) batteryRisk = { level: 'high', text: `Ток ${controllerA}А при ёмкости ${cap}Ah (${cRate.toFixed(1)}C) — критическая перегрузка.`, colorClass: 'risk-high', score: 30 };
+          else if (cRate >= 2) batteryRisk = { level: 'medium', text: `Ток ${controllerA}А (${cRate.toFixed(1)}C) — высокая нагрузка.`, colorClass: 'risk-medium', score: 15 };
+          else if (cRate >= 1.5) batteryRisk = { level: 'medium', text: `Ток ${controllerA}А (${cRate.toFixed(1)}C) — допустимо.`, colorClass: 'risk-medium', score: 8 };
+          else batteryRisk = { level: 'low', text: `Ток ${controllerA}А (${cRate.toFixed(1)}C) — отличный запас.`, colorClass: 'risk-low', score: 0 };
+        } else batteryRisk = { level: 'low', text: `Пакеты NMC 55Ah выдерживают до 165А.`, colorClass: 'risk-low', score: 0 };
+        risks.push({ component: '🔋 Аккумулятор', ...batteryRisk });
+        totalRiskScore += batteryRisk.score;
+
+        let motorRisk = { level: 'low', text: '', colorClass: 'risk-low', score: 0 };
+        if (motorW > 3000 && currentMotorType === 'geared') motorRisk = { level: 'high', text: `Редукторный мотор ${motorW}Вт на пределе.`, colorClass: 'risk-high', score: 25 };
+        else if (motorW > 5000) motorRisk = { level: 'high', text: `Мощность ${motorW}Вт требует усиленного охлаждения.`, colorClass: 'risk-high', score: 20 };
+        else if (motorW > 3000 && currentMotorType === 'dd') motorRisk = { level: 'medium', text: `DD мотор ${motorW}Вт греется.`, colorClass: 'risk-medium', score: 10 };
+        else if (motorW > 1500 && currentMotorType === 'geared') motorRisk = { level: 'medium', text: `Редуктор ${motorW}Вт — следите за температурой.`, colorClass: 'risk-medium', score: 5 };
+        else motorRisk = { level: 'low', text: `Мотор ${motorW}Вт в штатном режиме.`, colorClass: 'risk-low', score: 0 };
+        risks.push({ component: '⚙️ Мотор', ...motorRisk });
+        totalRiskScore += motorRisk.score;
+
+        let brakeRisk = { level: 'low', text: '', colorClass: 'risk-low', score: 0 };
+        if (motorW >= 1000 && !isHydraulic) brakeRisk = { level: 'high', text: `Мощность ${motorW}Вт при стоковых тормозах — аварийно опасно!`, colorClass: 'risk-high', score: 30 };
+        else if (motorW >= 2000 && isHydraulic) brakeRisk = { level: 'medium', text: `Гидравлика справится, но диски могут перегреваться.`, colorClass: 'risk-medium', score: 5 };
+        else if (motorW >= 500 && !isHydraulic) brakeRisk = { level: 'medium', text: `Для мощности ${motorW}Вт желательны гидравлические тормоза.`, colorClass: 'risk-medium', score: 3 };
+        else brakeRisk = { level: 'low', text: `Тормозная система адекватна мощности.`, colorClass: 'risk-low', score: 0 };
+        risks.push({ component: '🛑 Тормоза', ...brakeRisk });
+        totalRiskScore += brakeRisk.score;
+
+        let frameRisk = { level: 'low', text: '', colorClass: 'risk-low', score: 0 };
+        if (frameMaterial === 'aluminum' && motorW > 3000) frameRisk = { level: 'high', text: `Алюминиевая рама при ${motorW}Вт может треснуть.`, colorClass: 'risk-high', score: 20 };
+        else if (frameMaterial === 'aluminum' && motorW > 1500) frameRisk = { level: 'medium', text: `Алюминиевая рама выдержит, но проверяйте дропауты.`, colorClass: 'risk-medium', score: 8 };
+        else if (frameType === 'space' && motorW > 2000) frameRisk = { level: 'medium', text: `Пространственная рама из стали прочная.`, colorClass: 'risk-medium', score: 5 };
+        else frameRisk = { level: 'low', text: `Рама подходит по прочности.`, colorClass: 'risk-low', score: 0 };
+        if (!hasDropout && motorW >= 500) { frameRisk.text += ' (усилители дропаутов не установлены).'; frameRisk.score += 5; if (frameRisk.level !== 'high') frameRisk.level = 'medium'; frameRisk.colorClass = 'risk-medium'; }
+        risks.push({ component: '🚲 Рама/дропауты', ...frameRisk });
+        totalRiskScore += frameRisk.score;
+
+        let reliability = Math.max(0, Math.min(100, 100 - totalRiskScore));
+        let reliabilityText = reliability >= 80 ? '✅ Высокая' : (reliability >= 50 ? '⚠️ Средняя' : '🔴 Низкая');
+        return { risks, reliability, reliabilityText };
+      }
+
+      function updateSummary() {
+        const perf = computePerformance();
+        const capWarn = getCurrentCapacityWarning();
+        const warnDiv = root.querySelector("#warningMsg");
+        if(capWarn) { warnDiv.style.display="block"; warnDiv.innerHTML=capWarn.message; if(capWarn.level==="critical") warnDiv.classList.add("warning-critical"); else warnDiv.classList.remove("warning-critical"); } 
+        else warnDiv.style.display="none";
+        if(!perf) { root.querySelector("#summaryText").innerHTML="⚠️ Недостаточно данных."; return; }
+        let slopeV=parseFloat(root.querySelector("#slope").value), windV=parseFloat(root.querySelector("#headwind").value), weightV=parseFloat(root.querySelector("#riderWeight").value);
+        let slopeDesc=(slopeV>5)?`⛰️ Подъём ${slopeV}%`:(slopeV<-3)?`🏞️ Спуск ${Math.abs(slopeV)}%`:`🚵 Рельеф ${slopeV}%`;
+        let windDesc=windV>5?`💨 Ветер ${windV} м/с`:(windV>2?`🍃 Ветер ${windV} м/с`:`🌬️ Штиль`);
+        let weightDesc=weightV>100?`⚖️ Вес ${weightV} кг`:(weightV<65?`⚖️ Лёгкий райдер`:`⚖️ Вес ${weightV} кг`);
+        let summary = `🚀 Скорость: <strong>${perf.speed} км/ч</strong><br>🔋 Запас: эконом ${perf.eco} км, город ${perf.city} км, спорт ${perf.sport} км<br>${weightDesc} ${windDesc} ${slopeDesc}`;
+        root.querySelector("#summaryText").innerHTML = summary;
+
+        const failurePred = predictFailures();
+        let failureHtml = `<div class="failure-prediction"><h4>🔮 Прогноз поломок и надёжности</h4>`;
+        for (let r of failurePred.risks) {
+          failureHtml += `<div class="failure-item"><strong>${r.component}</strong>: <span class="${r.colorClass}">${r.level === 'high' ? '🔴 ВЫСОКИЙ РИСК' : (r.level === 'medium' ? '🟡 СРЕДНИЙ РИСК' : '🟢 НИЗКИЙ РИСК')}</span><br>${r.text}</div>`;
+        }
+        failureHtml += `<div class="reliability-score">📊 ОБЩАЯ НАДЁЖНОСТЬ: ${failurePred.reliability}% (${failurePred.reliabilityText})</div></div>`;
+        let aiBlock = root.querySelector("#aiAdviceBlock");
+        if (!aiBlock) { const estimationDiv = root.querySelector("#estimationBlock"); const nd = document.createElement("div"); nd.id = "aiAdviceBlock"; estimationDiv.appendChild(nd); aiBlock = nd; }
+        aiBlock.innerHTML = failureHtml;
+      }
+
+      function computePerformance() {
+        const wh = parseFloat(currentVoltage) * parseFloat(currentCapacity);
+        const motorW = getMotorPowerWatt(); const controllerA = getControllerCurrent();
+        if (motorW === 0 || wh === 0 || controllerA === 0) return null;
+        let sp = getBaseSpeed48(currentMotorType, currentBikeType, motorW) * Math.pow(parseFloat(currentVoltage)/48,0.85);
+        let wf = 1.0; 
+        if (currentWheelSize === "20x4") wf = 0.93; else if (currentWheelSize === "26x4") wf = 0.98; else if (currentWheelSize === "20") wf = 0.95; else if (currentWheelSize === "26") wf = 1.0; else if (currentWheelSize === "27.5") wf = 1.02; else if (currentWheelSize === "29") wf = 1.05;
+        sp *= wf;
+        let wind = parseFloat(root.querySelector("#headwind").value); let slope = parseFloat(root.querySelector("#slope").value);
+        sp *= Math.max(0.5, 1 - wind*0.02) * (slope>0?Math.max(0.5,1-slope*0.02):(slope<0?Math.min(1.3,1+Math.abs(slope)*0.01):1));
+        let rider = parseFloat(root.querySelector("#riderWeight").value);
+        sp *= (rider>75?Math.max(0.92,1-(rider-75)*0.0015):(rider<75?Math.min(1.08,1+(75-rider)*0.001):1));
+        if (currentMotorType==='geared' && currentBikeType==='fat' && currentVoltage==='60') { if (motorW===1000) sp+=3; if (motorW===1200) sp+=5; }
+        if (currentMotorType==='dd' && currentBikeType==='mountain') { if (currentVoltage==='48') { if (motorW===1000) sp+=7; if (motorW===1500) sp+=3; } else if (currentVoltage==='60') { if (motorW===1000) sp+=5; if (motorW===1500) sp+=2; } }
+        sp = Math.max(15, Math.round(sp));
+        let eco = 8+(motorW/500)*1.5+(controllerA/30)*1.2, city = 12+(motorW/400)*2+(controllerA/25)*1.8, sport = 20+(motorW/300)*3+(controllerA/20)*2.5;
+        let env = 1+(rider-75)*0.005+wind*0.03; if(slope>0) env+=slope*0.04; else if(slope<0) env-=Math.abs(slope)*0.02; env=Math.min(2,Math.max(0.7,env));
+        let wef = 1.0; if(currentWheelSize==="20x4") wef=1.07; else if(currentWheelSize==="26x4") wef=1.03; else if(currentWheelSize==="20") wef=1.05; else if(currentWheelSize==="26") wef=1.0; else if(currentWheelSize==="29") wef=1.04; else if(currentWheelSize==="27.5") wef=1.02;
+        eco *= env*wef; city *= env*wef; sport *= env*wef;
+        if(currentBikeType==="fat" && currentMotorType==="dd" && sp>80 && motorW>=3000) { sport*=0.65; city*=0.70; eco*=0.85; }
+        let eff = motorW>2000?0.75:0.85;
+        let er = (wh*eff)/eco, cr = (wh*(eff-0.05))/city, sr = (wh*(eff-0.15))/sport;
+        er=Math.min(180,Math.max(15,er)); cr=Math.min(140,Math.max(10,cr)); sr=Math.min(100,Math.max(8,sr));
+        return { speed:sp, eco:Math.round(er), city:Math.round(cr), sport:Math.round(sr) };
+      }
+      function getBaseSpeed48(mt, bt, pw) {
+        if (mt === 'dd') { if (bt === 'fat') { if (pw === 1500) return 57; if (pw === 3000) return 70; if (pw === 5000) return 75; return 45; } else { if (pw === 1000) return 48; if (pw === 1500) return 55; if (pw === 2000) return 62; return 45; } }
+        else { if (bt === 'fat') { if (pw === 500) return 45; if (pw === 750) return 50; if (pw === 950) return 51; if (pw === 1000) return 52; if (pw === 1200) return 52; return 32; } else { if (pw === 250) return 28; if (pw === 350) return 32; if (pw === 500) return 45; if (pw === 750) return 48; if (pw === 1000) return 52; return 28; } }
+      }
+      function getCurrentCapacityWarning() { 
+        const cap = parseFloat(currentCapacity); const cur = getControllerCurrent(); 
+        if(isNaN(cap)||isNaN(cur)||cap<=0||cur<=0) return null; 
+        if(currentCapacity==="55") return null; 
+        const ratio = cur/cap; 
+        if(ratio>=3) return { level:"critical", message:`⚠️ КРИТИЧЕСКИ ВЫСОКИЙ ТОК! Контроллер ${cur}А на АКБ ${cap}Ah (${ratio.toFixed(1)}× ёмкости).` }; 
+        if(ratio>=2) return { level:"warning", message:`⚠️ Внимание: ток ${cur}А на АКБ ${cap}Ah (${ratio.toFixed(1)}×). Рекомендуемый ток до ${cap*2}А.` }; 
+        return null; 
+      }
+
+      function updateAll() {
+        const total = getBatteryPrice()+getMotorPrice()+getControllerPrice()+getDisplayPrice()+getBikeBasePrice()+getElectrificationPrice()+getPasPrice()+getThrottlePrice()+getBrakesPrice()+getDropoutPrice()+getMirrorsPrice()+getWingsPrice();
+        root.querySelector("#totalPrice").innerText = total.toLocaleString();
+        let motorSpec=""; if(currentMotorPower) { const m = motors.find(m=>m.id===currentMotorPower); if(m) motorSpec = `${m.type==='geared'?'редуктор':'DD'} ${m.bikeType==='fat'?'фэтбайк':'горный'}, ${m.label?m.label:`${m.power} Вт (${m.position==='front'?'перед':'зад'})`} · `; }
+        const ctrlText = `Контроллер: ${controllers.find(c=>c.id===currentControllerId)?.label||""} · `;
+        const displayVal = root.querySelector('#displaySelect').value;
+        const displayText = displayVal === 'none' ? 'без дисплея (ключ/индикатор)' : (displayVal === 'bw' ? 'Ч/Б дисплей' : 'цветной дисплей');
+        const ready = root.querySelector('#readyKitCheckbox').checked, own = root.querySelector('#ownBikeCheckbox').checked;
+        let bikeBaseText = ""; if(ready) bikeBaseText = "База: комплект · "; else if(own) bikeBaseText = "База: свой · "; else bikeBaseText = `База: ${getBikeBaseLabel()} · `;
+        const elecText = (!ready && getElectrificationName()) ? `${getElectrificationName()} · ` : "";
+        const throttleText = getThrottleLabel() ? `${getThrottleLabel()} · ` : "";
+        const pasText = `${getPasLabel()} · `;
+        const brakesText = getBrakesLabel() ? `${getBrakesLabel()} · ` : "";
+        const dropoutText = getDropoutPrice() ? `усилители дропаутов (+${defaultPrices.options.dropout.toLocaleString()}₽) · ` : "";
+        const mirrorsText = getMirrorsLabel() ? `${getMirrorsLabel()} · ` : "";
+        const wingsText = getWingsLabel() ? `${getWingsLabel()} · ` : "";
+        let specsText = `${currentVoltage}V ${currentCapacity}Ah (${currentCellType === "lg" ? "LG 21700" : (currentCapacity==="55"?"пакеты NMC":"China A+ grade")}) · ${motorSpec}${ctrlText}Дисплей: ${displayText} · ${bikeBaseText}${elecText}${throttleText}${pasText}${brakesText}${dropoutText}${mirrorsText}${wingsText}фара в подарок`;
+        specsText = specsText.replace(/ · +/g," · ").replace(/· $/,"");
+        root.querySelector("#specs").innerHTML = specsText;
+        updateSummary();
+      }
+      function getBikeBaseLabel() { 
+        const t = root.querySelector('input[name="bikeBaseType"]:checked').value; 
+        if(t==="space") return "пространственная рама (сталь)"; 
+        const m = root.querySelector('input[name="bikeBaseMaterial"]:checked').value; 
+        const tn = t==="mountain"?"горный":"фэт"; 
+        const mn = m==="aluminum"?"алюминий":"сталь"; 
+        return `${tn} (${mn})`; 
+      }
+      function getElectrificationName() { 
+        const sel = root.querySelector('input[name="electrification"]:checked'); 
+        return sel ? (sel.value==="basic"?"базовая спицовка":"премиум спицовка") : ""; 
+      }
+      function getPasLabel() { return root.querySelector("#pasCheckbox").checked ? "Ассистент" : "Ассистент отключён"; }
+      function getThrottleLabel() { 
+        const v = root.querySelector('input[name="throttle"]:checked')?.value; 
+        if(v==="standard") return "курок газа"; 
+        if(v==="half-twist") return "ручка газа (половинчатая)"; 
+        return "без ручки газа"; 
+      }
+      function getBrakesLabel() { 
+        const s = root.querySelector('input[name="brakes"]:checked'); 
+        return s && s.value==="hydraulic" ? "гидравлические DOT" : "тормоза сток"; 
+      }
+      function getMirrorsLabel() { return root.querySelector("#mirrors").checked ? "зеркала" : ""; }
+      function getWingsLabel() { return root.querySelector("#wings").checked ? "крылья" : ""; }
+
+      function generateHTMLReport() { return "<html>...</html>"; }
+      function saveConfig() { const report = generateHTMLReport(); const blob = new Blob([report], {type:"text/html"}); const a = document.createElement("a"); const url = URL.createObjectURL(blob); a.href=url; a.download=`citybike_${new Date().toISOString()}.html`; a.click(); URL.revokeObjectURL(url); recordSaveConfig(); }
+      root.querySelector("#saveConfigBtn").addEventListener("click", saveConfig);
+
+      let analytics = { pageViews:0, savesCount:0 };
+      function loadAnalytics() { const s = localStorage.getItem('cityBikeAnalytics'); if(s) { try { const p = JSON.parse(s); analytics.pageViews = p.pageViews||0; analytics.savesCount = p.savesCount||0; } catch(e){} } analytics.pageViews++; saveAnalytics(); }
+      function saveAnalytics() { localStorage.setItem('cityBikeAnalytics', JSON.stringify({ pageViews: analytics.pageViews, savesCount: analytics.savesCount })); updateStatsDisplay(); }
+      function recordSaveConfig() { analytics.savesCount++; saveAnalytics(); }
+      function updateStatsDisplay() { const c = root.querySelector('#statsContainer'); if(c) c.innerHTML = `<div class="stat-card"><h4>📄 Загрузок</h4><div class="value">${analytics.pageViews}</div></div><div class="stat-card"><h4>💾 Сохранений</h4><div class="value">${analytics.savesCount}</div></div>`; }
+      function exportStats() { const data = JSON.stringify(analytics,null,2); const blob = new Blob([data],{type:"application/json"}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `stats_${new Date().toISOString()}.json`; a.click(); URL.revokeObjectURL(blob); }
+      function resetStats() { if(confirm('Сбросить статистику?')) { analytics = { pageViews:0, savesCount:0 }; saveAnalytics(); alert('Статистика сброшена.'); } }
+
+      // Редактор цен
+      function buildPriceEditor() {
+        const container = root.querySelector('#priceEditorContainer');
+        if (!container) return;
+        let html = '<h3>Цены на рамы и опции</h3><div class="price-editor-grid">';
+        for (let [key, val] of Object.entries(defaultPrices.frame)) {
+          html += `<div class="price-editor-item"><label>Рама ${key}</label><input type="number" data-cat="frame" data-key="${key}" value="${val}" step="100"> ₽</div>`;
+        }
+        html += '</div><div class="price-editor-grid">';
+        for (let [key, val] of Object.entries(defaultPrices.electrification)) {
+          html += `<div class="price-editor-item"><label>Электрификация ${key}</label><input type="number" data-cat="electrification" data-key="${key}" value="${val}" step="100"> ₽</div>`;
+        }
+        html += '</div><div class="price-editor-grid">';
+        for (let [key, val] of Object.entries(defaultPrices.options)) {
+          html += `<div class="price-editor-item"><label>Опция ${key}</label><input type="number" data-cat="options" data-key="${key}" value="${val}" step="100"> ₽</div>`;
+        }
+        html += '</div><h3>Цены дисплеев</h3><div class="price-editor-grid">';
+        html += `<div class="price-editor-item"><label>Ключ/индикатор (без дисплея)</label><input type="number" data-cat="display" data-key="none" value="${defaultPrices.display.none}" step="100"> ₽</div>`;
+        html += `<div class="price-editor-item"><label>Чёрно-белый дисплей</label><input type="number" data-cat="display" data-key="bw" value="${defaultPrices.display.bw}" step="100"> ₽</div>`;
+        html += `<div class="price-editor-item"><label>Цветной дисплей</label><input type="number" data-cat="display" data-key="color" value="${defaultPrices.display.color}" step="100"> ₽</div>`;
+        html += '</div>';
+        container.innerHTML = html;
+      }
+      function applyPriceChanges() {
+        const inputs = root.querySelectorAll('#priceEditorContainer input');
+        inputs.forEach(inp => {
+          const cat = inp.dataset.cat;
+          const key = inp.dataset.key;
+          const newVal = parseInt(inp.value, 10);
+          if (!isNaN(newVal) && defaultPrices[cat] && defaultPrices[cat][key] !== undefined) {
+            defaultPrices[cat][key] = newVal;
+          }
+        });
+        saveCustomPricesToLocalStorage();
+        updateBikeBasePriceHint();
+        updateDisplaySelectText();
+        updateAll();
+        alert('Цены сохранены');
+      }
+      function resetPricesToDefault() {
+        if (confirm('Сбросить цены к стандартным?')) {
+          defaultPrices = {
+            frame: { mountain_al: 35000, mountain_steel: 20000, fat_al: 50000, fat_steel: 25000, space: 130000 },
+            electrification: { basic: 12700, premium: 17200 },
+            options: { pas: 1500, throttle_std: 1500, throttle_half: 3500, brakes_hydr: 12000, mirrors: 1500, wings: 1500, dropout: 1500 },
+            display: { none: 1000, bw: 7000, color: 7500 }
+          };
+          saveCustomPricesToLocalStorage();
+          buildPriceEditor();
+          updateBikeBasePriceHint();
+          updateDisplaySelectText();
+          updateAll();
+          alert('Цены сброшены');
+        }
+      }
+      function updateDisplaySelectText() {
+        const select = root.querySelector('#displaySelect');
+        const nonePrice = defaultPrices.display.none;
+        const bwPrice = defaultPrices.display.bw;
+        const colorPrice = defaultPrices.display.color;
+        select.options[0].text = `Без дисплея / ключ/индикатор (${nonePrice.toLocaleString()} ₽)`;
+        select.options[1].text = `Чёрно-белый дисплей (${bwPrice.toLocaleString()} ₽)`;
+        select.options[2].text = `Цветной дисплей (${colorPrice.toLocaleString()} ₽)`;
+      }
+
+      function renderComponentsEditor() {
+        const motorsContainer = root.querySelector('#motorsList');
+        const controllersContainer = root.querySelector('#controllersList');
+        const batteriesContainer = root.querySelector('#batteriesList');
+        if(!motorsContainer) return;
+        motorsContainer.innerHTML = motors.map((m, idx) => `
+          <div class="sortable-item" data-idx="${idx}" data-type="motor">
+            <div class="drag-handle">⋮⋮</div>
+            <div class="content">
+              <select class="motor-type-edit" style="width:110px;">
+                <option value="geared" ${m.type === 'geared' ? 'selected' : ''}>Редукторный</option>
+                <option value="dd" ${m.type === 'dd' ? 'selected' : ''}>Прямопривод</option>
+              </select>
+              <select class="motor-biketype-edit" style="width:90px;">
+                <option value="fat" ${m.bikeType === 'fat' ? 'selected' : ''}>Фэтбайк</option>
+                <option value="mountain" ${m.bikeType === 'mountain' ? 'selected' : ''}>Горный</option>
+              </select>
+              <input type="text" class="motor-power-edit" value="${m.power}" style="width:70px;" placeholder="Мощность">
+              <input type="text" class="motor-label-edit" value="${m.label || ''}" placeholder="Метка" style="width:90px;">
+              <select class="motor-position-edit" style="width:80px;">
+                <option value="front" ${m.position === 'front' ? 'selected' : ''}>Перед</option>
+                <option value="rear" ${m.position === 'rear' ? 'selected' : ''}>Зад</option>
+              </select>
+              <input type="number" class="motor-price-edit" value="${m.price}" style="width:100px;">
+              <button class="save-motor-btn">💾</button>
+              <button class="delete-btn" data-type="motor" data-idx="${idx}">🗑️</button>
+            </div>
+          </div>
+        `).join('');
+
+        controllersContainer.innerHTML = controllers.map((c,idx)=>`<div class="sortable-item" data-idx="${idx}" data-type="controller"><div class="drag-handle">⋮⋮</div><div class="content"><input type="text" class="ctrl-id-edit" value="${c.id}" style="width:70px;"><input type="text" class="ctrl-label-edit" value="${c.label}" style="width:150px;"><input type="text" class="ctrl-voltage-edit" value="${c.voltage.join(',')}" style="width:100px;"><input type="number" class="ctrl-current-edit" value="${c.current}" style="width:70px;"><input type="number" class="ctrl-price-edit" value="${c.price}" style="width:100px;"><button class="save-ctrl-btn">💾</button><button class="delete-btn" data-type="controller" data-idx="${idx}">🗑️</button></div></div>`).join('');
+        batteriesContainer.innerHTML = batteries.map((b,idx)=>`<div class="sortable-item" data-idx="${idx}" data-type="battery"><div class="drag-handle">⋮⋮</div><div class="content"><input type="text" class="bat-voltage-edit" value="${b.voltage}" style="width:70px;"><input type="text" class="bat-capacity-edit" value="${b.capacity}" style="width:70px;"><select class="bat-celltype-edit">${['lg','china'].map(ct=>`<option value="${ct}" ${b.cellType===ct?'selected':''}>${ct==='lg'?'LG':'China'}</option>`).join('')}</select><input type="number" class="bat-price-edit" value="${b.price}" style="width:100px;"><button class="save-bat-btn">💾</button><button class="delete-btn" data-type="battery" data-idx="${idx}">🗑️</button></div></div>`).join('');
+
+        motorsContainer.querySelectorAll('.save-motor-btn').forEach(btn => btn.addEventListener('click', () => {
+          const item = btn.closest('.sortable-item');
+          const idx = parseInt(item.dataset.idx);
+          const newType = item.querySelector('.motor-type-edit').value;
+          const newBikeType = item.querySelector('.motor-biketype-edit').value;
+          const newPower = item.querySelector('.motor-power-edit').value;
+          const newLabel = item.querySelector('.motor-label-edit').value;
+          const newPosition = item.querySelector('.motor-position-edit').value;
+          const newPrice = parseInt(item.querySelector('.motor-price-edit').value);
+          if (!newPower || isNaN(newPrice)) return;
+          const newId = `${newType}_${newBikeType}_${newPower}_${newPosition}`;
+          motors[idx] = { ...motors[idx], type: newType, bikeType: newBikeType, power: newPower, position: newPosition, label: newLabel, price: newPrice, id: newId, color: motors[idx].color || "" };
+          saveComponents();
+          renderComponentsEditor();
+          updateMotorUI();
+          updateAll();
+        }));
+
+        controllersContainer.querySelectorAll('.save-ctrl-btn').forEach(btn=>btn.addEventListener('click',()=>{ 
+          const item=btn.closest('.sortable-item'); 
+          const idx=parseInt(item.dataset.idx); 
+          const newId=item.querySelector('.ctrl-id-edit').value.trim(); 
+          const newLabel=item.querySelector('.ctrl-label-edit').value.trim(); 
+          const voltageStr=item.querySelector('.ctrl-voltage-edit').value; 
+          const newVoltage=voltageStr.split(',').map(v=>v.trim()).filter(v=>v); 
+          const newCurrent=parseInt(item.querySelector('.ctrl-current-edit').value); 
+          const newPrice=parseInt(item.querySelector('.ctrl-price-edit').value); 
+          if(!newId||!newLabel||newVoltage.length===0||isNaN(newCurrent)||isNaN(newPrice)) return; 
+          controllers[idx]={id:newId, label:newLabel, voltage:newVoltage, current:newCurrent, price:newPrice, color:""}; 
+          saveComponents(); renderComponentsEditor(); updateControllerUI(); updateAll(); 
+        }));
+        batteriesContainer.querySelectorAll('.save-bat-btn').forEach(btn=>btn.addEventListener('click',()=>{ 
+          const item=btn.closest('.sortable-item'); 
+          const idx=parseInt(item.dataset.idx); 
+          const newVoltage=item.querySelector('.bat-voltage-edit').value; 
+          const newCapacity=item.querySelector('.bat-capacity-edit').value; 
+          const newCellType=item.querySelector('.bat-celltype-edit').value; 
+          const newPrice=parseInt(item.querySelector('.bat-price-edit').value); 
+          if(!newVoltage||!newCapacity||isNaN(newPrice)) return; 
+          batteries[idx]={voltage:newVoltage, capacity:newCapacity, cellType:newCellType, price:newPrice}; 
+          saveComponents(); renderComponentsEditor(); updateBatteryUI(); updateAll(); 
+        }));
+        root.querySelectorAll('.delete-btn').forEach(btn=>btn.addEventListener('click',()=>{ 
+          const type=btn.dataset.type; 
+          const idx=parseInt(btn.dataset.idx); 
+          if(confirm('Удалить?')){ 
+            if(type==='motor') motors.splice(idx,1); 
+            else if(type==='controller') controllers.splice(idx,1); 
+            else if(type==='battery') batteries.splice(idx,1); 
+            saveComponents(); renderComponentsEditor(); updateMotorUI(); updateControllerUI(); updateBatteryUI(); updateAll(); 
+          } 
+        }));
+      }
+
+      // Товары
+      let products = [];
+      const defaultProducts = [{ name:"Фуллфейс-шлем", link:"https://megabonus.com/y/aGK96", bgColor:"", btnColor:"", badge:"" },{ name:"Шлем с защитой ушей", link:"https://megabonus.com/y/kurWZ", bgColor:"", btnColor:"", badge:"" },{ name:"Облегчённый шлем", link:"https://megabonus.com/y/26fuk", bgColor:"", btnColor:"", badge:"" }];
+      function loadProducts() { const s = localStorage.getItem('cityBikeProducts'); products = s ? JSON.parse(s) : JSON.parse(JSON.stringify(defaultProducts)); renderRecommendations(); if(root.querySelector('#productsList')) renderProductsEditor(); }
+      function saveProducts() { localStorage.setItem('cityBikeProducts', JSON.stringify(products)); renderRecommendations(); renderProductsEditor(); }
+      function resetProductsToDefault() { products = JSON.parse(JSON.stringify(defaultProducts)); saveProducts(); }
+      function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+      function renderRecommendations() { const cont = root.querySelector('#recommendationsContainer'); if(!cont) return; if(!products.length){cont.style.display='none';return;} cont.style.display='block'; let html = `<div style="font-size:13px;font-weight:600;margin-bottom:12px;color:#d4b8ff;text-align:center;">РЕКОМЕНДУЕМ</div><div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;">`; for(let p of products){ const bg=p.bgColor?`background:${p.bgColor};`:'', btn=p.btnColor?`background:${p.btnColor};border-color:${p.btnColor};`:'', badgeHtml=p.badge?`<span class="badge">${escapeHtml(p.badge)}</span>`:''; html+=`<div data-orig-bg="${p.bgColor||'rgba(25,28,45,0.7)'}" style="flex:1;min-width:140px;border-radius:14px;padding:10px;text-align:center;border:1px solid rgba(155,89,182,0.3);transition:0.2s;${bg}" onmouseover="this.style.borderColor='#9b59b6';this.style.backgroundColor='rgba(155,89,182,0.1)';" onmouseout="this.style.borderColor='rgba(155,89,182,0.3)';this.style.backgroundColor=this.dataset.origBg;"><div style="font-weight:600;color:#e0e4ff;font-size:13px;margin-bottom:8px;">${escapeHtml(p.name)} ${badgeHtml}</div><a href="${escapeHtml(p.link)}" target="_blank" rel="nofollow noopener" style="display:inline-block;padding:5px 12px;border-radius:20px;font-size:10px;font-weight:600;color:white;text-decoration:none;${btn}">ВЫБРАТЬ →</a></div>`; } html+=`</div>`; cont.innerHTML=html; }
+      function renderProductsEditor() { const cont = root.querySelector('#productsList'); if(!cont) return; if(!products.length){cont.innerHTML='<p style="color:#b0b5d0;">Нет товаров. Добавьте первый.</p>';return;} let html=''; for(let i=0;i<products.length;i++){ const p=products[i]; html+=`<div class="product-item"><input type="text" class="name-input" value="${escapeHtml(p.name)}" placeholder="Название"><input type="text" class="link-input" value="${escapeHtml(p.link)}" placeholder="Ссылка"><select class="bg-color-select"><option value="">Стандарт</option><option value="#ffcccc" ${p.bgColor==='#ffcccc'?'selected':''}>Красный</option><option value="#ffffcc" ${p.bgColor==='#ffffcc'?'selected':''}>Жёлтый</option><option value="#ccffcc" ${p.bgColor==='#ccffcc'?'selected':''}>Зелёный</option><option value="#ccccff" ${p.bgColor==='#ccccff'?'selected':''}>Синий</option></select><select class="btn-color-select"><option value="">Стандарт</option><option value="#e67e22" ${p.btnColor==='#e67e22'?'selected':''}>Оранж</option><option value="#e74c3c" ${p.btnColor==='#e74c3c'?'selected':''}>Красн</option><option value="#2ecc71" ${p.btnColor==='#2ecc71'?'selected':''}>Зелен</option></select><input type="text" class="badge-input" value="${escapeHtml(p.badge)}" placeholder="Метка"><button class="edit-btn" data-index="${i}">✏️</button><button class="delete-btn" data-index="${i}" style="background:#e74c3c;">🗑️</button></div>`; } cont.innerHTML=html; cont.querySelectorAll('.edit-btn').forEach(btn=>btn.addEventListener('click',()=>{ const idx=parseInt(btn.dataset.index); const div=btn.closest('.product-item'); const newName=div.querySelector('.name-input').value.trim(); const newLink=div.querySelector('.link-input').value.trim(); const newBg=div.querySelector('.bg-color-select').value; const newBtn=div.querySelector('.btn-color-select').value; const newBadge=div.querySelector('.badge-input').value.trim(); if(newName&&newLink){ products[idx]={name:newName, link:newLink, bgColor:newBg, btnColor:newBtn, badge:newBadge}; saveProducts(); } else alert('Заполните название и ссылку'); })); cont.querySelectorAll('.delete-btn').forEach(btn=>btn.addEventListener('click',()=>{ const idx=parseInt(btn.dataset.index); if(confirm('Удалить товар?')){ products.splice(idx,1); saveProducts(); } })); }
+
+      // Оформление
+      function loadAppearanceSettings() { const s = localStorage.getItem('cityBikeAppearance'); if(s){ try{ const set=JSON.parse(s); if(set.particles!==undefined) setParticlesEnabled(set.particles); if(set.bgColor) root.style.backgroundColor=set.bgColor; if(set.cardOpacity!==undefined){ root.querySelector('.ev-calc-compact').style.background=`rgba(8,10,18,${set.cardOpacity})`; root.querySelector('#cardOpacity').value=set.cardOpacity; root.querySelector('#opacityValue').innerText=set.cardOpacity; } if(set.cardBlur!==undefined){ root.querySelector('.ev-calc-compact').style.backdropFilter=`blur(${set.cardBlur}px)`; root.querySelector('#cardBlur').value=set.cardBlur; root.querySelector('#blurValue').innerText=set.cardBlur+'px'; } if(set.bgColor) root.querySelector('#bgColorPicker').value=set.bgColor; root.querySelector('#toggleParticles').checked=set.particles!==false; }catch(e){} } }
+      function saveAppearanceSettings() { const set={ particles:particlesEnabled, bgColor:root.style.backgroundColor||'#0a0c12', cardOpacity:parseFloat(root.querySelector('#cardOpacity').value), cardBlur:parseInt(root.querySelector('#cardBlur').value) }; localStorage.setItem('cityBikeAppearance',JSON.stringify(set)); }
+      function applyAppearanceFromUI() { setParticlesEnabled(root.querySelector('#toggleParticles').checked); root.style.backgroundColor=root.querySelector('#bgColorPicker').value; const op=parseFloat(root.querySelector('#cardOpacity').value); root.querySelector('.ev-calc-compact').style.background=`rgba(8,10,18,${op})`; root.querySelector('#opacityValue').innerText=op; const bl=parseInt(root.querySelector('#cardBlur').value); root.querySelector('.ev-calc-compact').style.backdropFilter=`blur(${bl}px)`; root.querySelector('#blurValue').innerText=bl+'px'; saveAppearanceSettings(); }
+      function resetAppearance() { setParticlesEnabled(true); root.style.backgroundColor='#0a0c12'; root.querySelector('.ev-calc-compact').style.background='rgba(8,10,18,0.85)'; root.querySelector('.ev-calc-compact').style.backdropFilter='blur(4px)'; root.querySelector('#bgColorPicker').value='#0a0c12'; root.querySelector('#cardOpacity').value='0.85'; root.querySelector('#opacityValue').innerText='0.85'; root.querySelector('#cardBlur').value='4'; root.querySelector('#blurValue').innerText='4px'; root.querySelector('#toggleParticles').checked=true; saveAppearanceSettings(); }
+
+      // Привязка событий
+      const adminBtn = root.querySelector('#adminBtn'), adminModal = root.querySelector('#adminModal'), closeModal = root.querySelector('#closeModal'), closeModalBtn = root.querySelector('#closeModalBtn');
+      const exportStatsBtn = root.querySelector('#exportStatsBtn'), resetStatsBtn = root.querySelector('#resetStatsBtn');
+      const tabStatsBtn = root.querySelector('#tabStatsBtn'), tabPricesBtn = root.querySelector('#tabPricesBtn'), tabComponentsBtn = root.querySelector('#tabComponentsBtn'), tabProductsBtn = root.querySelector('#tabProductsBtn'), tabAppearanceBtn = root.querySelector('#tabAppearanceBtn');
+      const tabStatsDiv = root.querySelector('#tabStats'), tabPricesDiv = root.querySelector('#tabPrices'), tabComponentsDiv = root.querySelector('#tabComponents'), tabProductsDiv = root.querySelector('#tabProducts'), tabAppearanceDiv = root.querySelector('#tabAppearance');
+      
+      // ЗАЩИТА АДМИН-ПАНЕЛИ ПАРОЛЕМ
+      adminBtn.addEventListener('click', () => {
+        if (false) {
+          adminModal.style.display = 'flex';
+        } else {
+          alert('Неверный пароль');
+        }
+      });
+      
+      closeModal.addEventListener('click', () => adminModal.style.display = 'none');
+      closeModalBtn.addEventListener('click', () => adminModal.style.display = 'none');
+      exportStatsBtn.addEventListener('click', exportStats); resetStatsBtn.addEventListener('click', resetStats);
+      tabStatsBtn.addEventListener('click', ()=>{ tabStatsDiv.style.display='block'; tabPricesDiv.style.display='none'; tabComponentsDiv.style.display='none'; tabProductsDiv.style.display='none'; tabAppearanceDiv.style.display='none'; });
+      tabPricesBtn.addEventListener('click', ()=>{ tabStatsDiv.style.display='none'; tabPricesDiv.style.display='block'; tabComponentsDiv.style.display='none'; tabProductsDiv.style.display='none'; tabAppearanceDiv.style.display='none'; buildPriceEditor(); });
+      tabComponentsBtn.addEventListener('click', ()=>{ tabStatsDiv.style.display='none'; tabPricesDiv.style.display='none'; tabComponentsDiv.style.display='block'; tabProductsDiv.style.display='none'; tabAppearanceDiv.style.display='none'; renderComponentsEditor(); });
+      tabProductsBtn.addEventListener('click', ()=>{ tabStatsDiv.style.display='none'; tabPricesDiv.style.display='none'; tabComponentsDiv.style.display='none'; tabProductsDiv.style.display='block'; tabAppearanceDiv.style.display='none'; renderProductsEditor(); });
+      tabAppearanceBtn.addEventListener('click', ()=>{ tabStatsDiv.style.display='none'; tabPricesDiv.style.display='none'; tabComponentsDiv.style.display='none'; tabProductsDiv.style.display='none'; tabAppearanceDiv.style.display='block'; });
+      
+      root.querySelector('#savePricesBtn').addEventListener('click', applyPriceChanges);
+      root.querySelector('#resetPricesBtn').addEventListener('click', resetPricesToDefault);
+      root.querySelector('#toggleParticles').addEventListener('change', applyAppearanceFromUI);
+      root.querySelector('#bgColorPicker').addEventListener('input', applyAppearanceFromUI);
+      root.querySelector('#cardOpacity').addEventListener('input', applyAppearanceFromUI);
+      root.querySelector('#cardBlur').addEventListener('input', applyAppearanceFromUI);
+      root.querySelector('#resetAppearanceBtn').addEventListener('click', resetAppearance);
+      
+      root.querySelector('#addMotorBtn').addEventListener('click',()=>{ 
+        const type=root.querySelector('#motorTypeSelect').value; 
+        const bikeType=root.querySelector('#motorBikeTypeSelect').value; 
+        const power=root.querySelector('#motorPower').value; 
+        const pos=root.querySelector('#motorPosition').value; 
+        const price=parseInt(root.querySelector('#motorPrice').value); 
+        if(!power||isNaN(price)){alert('Заполните поля');return;} 
+        const id=`${type}_${bikeType}_${power}_${pos}`; 
+        motors.push({type,bikeType,power,position:pos,price,id,color:"",label:""}); 
+        saveComponents(); renderComponentsEditor(); updateMotorUI(); updateAll(); 
+      });
+      root.querySelector('#addControllerBtn').addEventListener('click',()=>{ 
+        const id=root.querySelector('#controllerId').value.trim(); 
+        const label=root.querySelector('#controllerLabel').value.trim(); 
+        const volStr=root.querySelector('#controllerVoltage').value; 
+        const vol=volStr.split(',').map(v=>v.trim()).filter(v=>v); 
+        const cur=parseInt(root.querySelector('#controllerCurrent').value); 
+        const price=parseInt(root.querySelector('#controllerPriceInput').value); 
+        if(!id||!label||vol.length===0||isNaN(cur)||isNaN(price)){alert('Заполните поля');return;} 
+        controllers.push({id,label,voltage:vol,current:cur,price,color:""}); 
+        saveComponents(); renderComponentsEditor(); updateControllerUI(); updateAll(); 
+      });
+      root.querySelector('#addBatteryBtn').addEventListener('click',()=>{ 
+        const ct=root.querySelector('#batteryCellType').value; 
+        const v=root.querySelector('#batteryVoltage').value; 
+        const cap=root.querySelector('#batteryCapacity').value; 
+        const price=parseInt(root.querySelector('#batteryPriceInput').value); 
+        if(!v||!cap||isNaN(price)){alert('Заполните поля');return;} 
+        batteries.push({voltage:v,capacity:cap,cellType:ct,price}); 
+        saveComponents(); renderComponentsEditor(); updateBatteryUI(); updateAll(); 
+      });
+      root.querySelector('#resetComponentsBtn').addEventListener('click',()=>{ if(confirm('Сбросить комплектующие?')) resetComponentsToDefault(); });
+      root.querySelector('#sortMotorsByPowerBtn').addEventListener('click',sortMotorsByPower);
+      root.querySelector('#sortControllersByCurrentBtn').addEventListener('click',sortControllersByCurrent);
+      root.querySelector('#sortBatteriesByVoltageBtn').addEventListener('click',sortBatteriesByVoltage);
+      root.querySelector('#addProductBtn').addEventListener('click',()=>{ 
+        const name=root.querySelector('#newProductName').value.trim(); 
+        const link=root.querySelector('#newProductLink').value.trim(); 
+        const bg=root.querySelector('#newProductBgColor').value; 
+        const btn=root.querySelector('#newProductBtnColor').value; 
+        const badge=root.querySelector('#newProductBadge').value.trim(); 
+        if(name&&link){ products.push({name,link,bgColor:bg,btnColor:btn,badge}); saveProducts(); 
+          root.querySelector('#newProductName').value=''; root.querySelector('#newProductLink').value=''; 
+          root.querySelector('#newProductBgColor').value=''; root.querySelector('#newProductBtnColor').value=''; 
+          root.querySelector('#newProductBadge').value=''; } else alert('Введите название и ссылку'); 
+      });
+      root.querySelector('#saveProductsBtn').addEventListener('click',()=>{ saveProducts(); alert('Товары сохранены'); });
+      root.querySelector('#resetProductsBtn').addEventListener('click',()=>{ if(confirm('Сбросить товары?')) resetProductsToDefault(); });
+
+      // Остальные слушатели (radio, checkbox, sliders)
+      const readyKitCheck = root.querySelector("#readyKitCheckbox"), ownBikeCheck = root.querySelector("#ownBikeCheckbox");
+      root.querySelectorAll('input[name="electrification"], input[name="brakes"], input[name="throttle"], #mirrors, #wings, #pasCheckbox').forEach(el=>el.addEventListener("change", updateAll));
+      root.querySelector('#displaySelect').addEventListener('change', () => { updateControllerUI(); updateAll(); });
+      root.querySelectorAll('input[name="throttle"]').forEach(r=>r.addEventListener("change",()=>{ updateThrottleVisibility(); updateAll(); }));
+      root.querySelector("#batteryCapacitySelect").addEventListener("change", e=>{ currentCapacity=e.target.value; updateBatteryUI(); updateAll(); });
+      root.querySelectorAll('input[name="cellType"]').forEach(r=>r.addEventListener("change", e=>{ currentCellType=e.target.value; updateBatteryUI(); updateAll(); }));
+      root.querySelectorAll('input[name="bikeBaseType"]').forEach(r=>r.addEventListener("change",()=>{ syncBikeTypeWithBase(); updateBikeBaseMaterialVisibility(); updateWheelSizeOptions(); updateVoltageAvailability(); updateAll(); }));
+      root.querySelectorAll('input[name="motorType"]').forEach(r=>r.addEventListener("change", e=>{ currentMotorType=e.target.value; updateMotorUI(); updateAll(); }));
+      root.querySelectorAll('input[name="bikeType"]').forEach(r=>r.addEventListener("change", e=>{ currentBikeType=e.target.value; updateMotorUI(); updateAll(); }));
+      root.querySelector("#motorPowerSelect").addEventListener("change", e=>{ currentMotorPower=e.target.value; updateControllerUI(); updateAll(); updateMotorUI(); });
+      root.querySelector("#controllerSelect").addEventListener("change", e=>{ currentControllerId=e.target.value; updateControllerUI(); updateAll(); });
+      root.querySelector("#wheelSizeSelect").addEventListener("change", e=>{ currentWheelSize=e.target.value; updateAll(); });
+      root.querySelectorAll('input[name="bikeBaseType"], input[name="bikeBaseMaterial"]').forEach(r=>r.addEventListener("change",()=>{ updateBikeBaseMaterialVisibility(); updateBikeBasePriceHint(); updateVoltageAvailability(); syncBikeTypeWithBase(); updateWheelSizeOptions(); updateAll(); }));
+      readyKitCheck.addEventListener("change",()=>updateCheckboxExclusivity('readyKit')); ownBikeCheck.addEventListener("change",()=>updateCheckboxExclusivity('ownBike'));
+      
+      const weightSlider = root.querySelector("#riderWeight"), windSlider = root.querySelector("#headwind"), slopeSlider = root.querySelector("#slope");
+      function updateSliderDisplays() { root.querySelector("#weightValue").innerText = weightSlider.value + " кг"; root.querySelector("#windValue").innerText = windSlider.value + " м/с"; root.querySelector("#slopeValue").innerText = slopeSlider.value + "%"; updateAll(); }
+      weightSlider.addEventListener("input", updateSliderDisplays); windSlider.addEventListener("input", updateSliderDisplays); slopeSlider.addEventListener("input", updateSliderDisplays);
+      
+      // Инициализация
+      loadComponents(); loadProducts(); loadAnalytics(); loadAppearanceSettings();
+      initCanvas(); initParticles(); startParticles();
+      updateVoltageAvailability(); syncBikeTypeWithBase(); updateBikeBaseMaterialVisibility(); updateWheelSizeOptions(); updateBikeBasePriceHint(); updateThrottleVisibility(); 
+      updateDisplaySelectText();
+      updateMotorUI(); updateControllerUI(); updateBatteryUI(); updateAll();
+    })();
+  </script>
+</div></div><section class="sec"><div class="wrap"><div class="sec-head"><h2>Собрали? Покажите мастеру</h2><p class="lead">Новосибирск, Вокзальная магистраль, 3, цоколь, въезд со двора. Ежедневно с 11:00 до 20:00, кроме воскресенья.</p></div>
+<div class="btns"><a class="btn" href="tel:+79137585571">Позвонить мастеру</a><a class="btn alt" href="https://wa.me/79137585571?text=Здравствуйте! Хочу записаться на сервис." rel="noopener">Написать в WhatsApp</a><a class="btn ghost" href="https://t.me/mr_org54" rel="noopener">Telegram</a></div></div></section></main>
+<footer class="foot"><div class="wrap foot-g">
+<div><h3>CITY BIKE</h3><p>Велосервис и электровелосипеды в Новосибирске с 2012 года.</p><p>Новосибирск, Вокзальная магистраль, 3 (цоколь, въезд со двора).<br>Ежедневно с 11:00 до 20:00, кроме воскресенья.</p></div>
+<div><h3>Разделы</h3><a href="../veloservice/">Велосервис</a><a href="../electroservice/">Электросервис</a><a href="../ecustom/">Электрификация</a><a href="../catalog/">Витрина</a><a href="../jobpaint/">Реставрация</a><a href="../sovets/">Диагност</a></div>
+<div><h3>Связь</h3><a href="tel:+79137585571">+7 913-758-55-71 (Евгений)</a><a href="tel:+79134571708">+7 913-457-17-08 (Максим)</a><a href="https://wa.me/79137585571" rel="noopener">WhatsApp</a><a href="https://t.me/mr_org54" rel="noopener">Telegram</a><a href="https://vk.com/citybikensk" rel="noopener">ВКонтакте</a><a href="https://novosibirsk.flamp.ru/firm/city_bike_veloservis-70000001022322607" rel="noopener">Отзывы на Флампе</a></div>
+</div><div class="wrap"><p style="margin-top:24px">ИП Пирожинский Е. С., ИНН 540702499534, ОГРНИП 317547600040776<br>ePN</p></div></footer>
+<nav class="act" aria-label="Быстрая связь"><a href="tel:+79137585571">Позвонить</a><a href="https://wa.me/79137585571" rel="noopener">WhatsApp</a><a href="https://t.me/mr_org54" rel="noopener">Telegram</a></nav>
+<script src="../assets/site.js?v=2" defer></script>
+</body></html>
