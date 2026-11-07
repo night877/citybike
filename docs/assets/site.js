@@ -21,7 +21,7 @@
     $$('details.pl').forEach(function (d) {
       var hit = false;
       $$('.pl-rows div', d).forEach(function (r) {
-        var ok = !q || norm(r.textContent).indexOf(q) > -1;
+        var ok = !q || words(q, norm(r.textContent));
         r.hidden = !ok;
         hit = hit || ok;
       });
@@ -32,13 +32,21 @@
     $('#price-empty').style.display = any ? 'none' : 'block';
   });
 
+  // Every word of the query must occur, in any order; long words are cut to a stem so
+  // "гудит мотор" finds "мотор гудит" and "дёргается" finds "дергается".
+  function words(q, text) {
+    return q.split(/[^a-zа-я0-9]+/).filter(function (w) { return w.length > 1; }).every(function (w) {
+      return text.indexOf(w.length > 5 ? w.slice(0, w.length - 2) : w) > -1;
+    });
+  }
+
   var diagInput = $('#diag-q');
   if (diagInput) {
     var diagCat = 'all';
     var applyDiag = function () {
       var q = norm(diagInput.value.trim()), any = false;
       $$('.diag').forEach(function (c) {
-        var ok = (diagCat === 'all' || c.dataset.cat === diagCat) && (!q || norm(c.textContent + ' ' + c.dataset.kw).indexOf(q) > -1);
+        var ok = (diagCat === 'all' || c.dataset.cat === diagCat) && (!q || words(q, norm(c.textContent + ' ' + c.dataset.kw)));
         c.hidden = !ok;
         any = any || ok;
       });
