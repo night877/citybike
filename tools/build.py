@@ -128,6 +128,14 @@ def contact_cta(b, title="Опишите проблему. Подскажем с
 <div class="btns"><a class="btn" href="tel:{PHONE}">Позвонить мастеру</a><a class="btn alt" href="{WA}?text={e('Здравствуйте! Хочу записаться на сервис.')}" rel="noopener">Написать в WhatsApp</a><a class="btn ghost" href="{TG}" rel="noopener">Telegram</a></div></div></section>"""
 
 
+# The workshop video from the old Tilda velo page (VK video of the CITY BIKE community).
+VK_VIDEO = "https://vkvideo.ru/video_ext.php?oid=-163575429&id=456239296&hd=2"
+
+
+def video_sec(kick, title):
+    return f'<section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><p class="kick">{kick}</p><h2>{title}</h2></div><div class="video"><iframe src="{VK_VIDEO}" title="Видео из мастерской CITY BIKE" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock" allowfullscreen></iframe></div><p class="mut" style="margin-top:10px">Больше видео в <a href="{VK}" rel="noopener">группе ВКонтакте</a>.</p></div></section>'
+
+
 def price_list(groups):
     out = ['<div class="price-tools"><input id="price-q" type="search" placeholder="Найти работу: цепь, спицы, прокачка..." aria-label="Поиск по прайсу"></div>']
     for g in groups:
@@ -287,6 +295,7 @@ velo_packs = [
 NOTE = '<p class="note">Предварительная цена определяется после диагностики и зависит от сложности работ.</p>'
 velo = hero(b, "master", "Мастер за работой в велосервисе CITY BIKE", "Велосервис · Новосибирск", "Ремонт велосипедов", "Приемлемые цены, гарантия качества ремонта и большой выбор запчастей. Бесплатно проконсультируем по обслуживанию вашего байка.", f'<a class="btn" href="tel:{PHONE}">Записаться на сервис</a><a class="btn ghost" href="#prices">Смотреть прайс</a>')
 velo += TAPE + f"""<section class="sec"><div class="wrap"><div class="sec-head"><h2>Пакеты ТО</h2></div><div class="pack">{''.join(f'<article><h3>{n}</h3><div class="price">{p}</div><ol>{"".join(f"<li>{x}</li>" for x in items)}</ol></article>' for n, p, items in velo_packs)}</div></div></section>
+{video_sec("Как мы работаем", "Заглянуть в мастерскую")}
 <section class="sec" id="prices" style="padding-top:0"><div class="wrap"><div class="sec-head"><h2>Прайс на работы</h2></div>{NOTE}{price_list(PRICES['veloservice'])}</div></section>
 <section class="sec-alt"><div class="wrap"><div class="gal">{img(b, 'hub', 'Разобранная втулка на верстаке', '(min-width:960px) 25vw,50vw')}{img(b, 'spokes', 'Мастер настраивает задний переключатель', '(min-width:960px) 25vw,50vw')}{img(b, 'truing', 'Мастер правит колесо на станке', '(min-width:960px) 25vw,50vw')}{img(b, 'rim', 'Правка обода велосипедного колеса', '(min-width:960px) 25vw,50vw')}{img(b, 'groupset', 'Навесное оборудование велосипеда', '(min-width:960px) 25vw,50vw')}{img(b, 'flatlay', 'Детали велосипеда разложены для ревизии', '(min-width:960px) 25vw,50vw')}</div></div></section>
 <section class="sec"><div class="wrap"><div class="sec-head"><h2>Вопросы о ремонте</h2></div>{faq_html(FAQ_VELO)}</div></section>""" + contact_cta(b)
@@ -387,6 +396,7 @@ REV_HTML = f"""<section class="sec" style="padding-top:0"><div class="wrap"><div
 
 about = hero(b, "evgeny", "Мастерская CITY BIKE", "С 2012 года", "Мастерская CITY BIKE", "Вся наша команда катается сама: стрит, фристайл, электробайки каждый день. Поэтому мы как никто понимаем, как байк должен работать и чего от него ждать.", f'<a class="btn" href="tel:{PHONE}">Позвонить</a><a class="btn alt" href="{GIS}" rel="noopener">Отзывы в 2ГИС</a>')
 about += TAPE + f"""<section class="sec"><div class="wrap split"><div><h2>Команда под любую задачу</h2><p class="lead" style="margin-top:12px">Сити Байк основан в 2012 году. В команде мастера-механики, инженеры, электронщики, маляры и токари, и все они райдеры.</p><p class="lead">Чиним, обслуживаем и собираем велосипеды, электробайки, электромото и аккумуляторы. Решаем задачи и любителя покататься по выходным, и профессионального райдера.</p></div>{img(b, 'master', 'Мастер за работой в CITY BIKE', '(min-width:960px) 50vw,100vw')}</div></section>
+{video_sec("Видео", "Мастерская изнутри")}
 {REV_HTML}
 <section class="sec" style="padding-top:0"><div class="wrap">{gal(b, [("truing", "Правка колеса"), ("el-board", "Проверка платы"), ("akb-build", "Сборка аккумулятора"), ("spokes", "Настройка переключателя"), ("motor-stator", "Ревизия мотор-колеса"), ("eb-red-tan", "Электровелосипед после сборки"), ("bench", "Рабочее место мастера"), ("emoto-black", "Электромото у мастерской")])}</div></section>""" + contact_cta(b, "Приезжайте в мастерскую")
 built.append(page("o_nas", "О велосервисе CITY BIKE в Новосибирске: мастера с 2012 года", "CITY BIKE в Новосибирске с 2012 года: мастера-механики, инженеры, электронщики, маляры и токари. Ремонт всех типов велосипедов и электровелосипеды.", about))
